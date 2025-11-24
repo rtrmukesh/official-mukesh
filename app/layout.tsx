@@ -14,19 +14,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexreon Partner Portal",
+  title: "Sush Tech",
   description:
-    "Access the Nexreon Partner Portal to manage projects, track tasks, view reports, and collaborate with your team efficiently.",
+    "Access the Sush Tech to manage projects, track tasks, view reports, and collaborate with your team efficiently.",
   keywords: [
-    "Nexreon",
-    "Partner Portal",
-    "Project Management",
-    "Task Tracking",
+    "SushTech",
+    "Sush Tech",
+    "sush tech",
+    "sush tech portal",
   ],
-  authors: [{ name: "Nexreon Team" }],
-  icons: {
-    icon: "/nexreon-fav.png",
-  },
+  authors: [{ name: "Mukesh" }],
+  // icons: {
+  //   icon: "/nexreon-fav.png",
+  // },
 };
 
 export default function RootLayout({
