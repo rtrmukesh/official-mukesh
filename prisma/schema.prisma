@@ -1,0 +1,23 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") 
+}
+
+
+/* ✴---User Model---✴ */
+model User {
+  id              String   @id @default(cuid())
+  name            String
+  email           String   @unique
+  google_unique_id String?  // optional, can be null
+  profile_url     String?   // optional, can be null
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime? // optional soft delete
+}
