@@ -1,9 +1,11 @@
+import { generateToken } from "@/lib/jwt";
 import { prisma } from "@/lib/prisma";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log("Request Body>>>", body);
+
 
     const { name, email, unique_id, profileUrl } = body;
 
@@ -36,13 +38,21 @@ export async function POST(req: Request) {
       });
     }
 
-    return new Response(
-      JSON.stringify({ success: true, user, isNewUser: user ? false : true }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const token = generateToken({
+      unique_id: unique_id,
+      email: user.email,
+      user_id: user.id,
+    });
+
+    const response = NextResponse.json({
+      success: true,
+      user,
+      isNewUser: user ? false : true,
+      token: token
+    });
+
+
+    return response;
   } catch (err) {
     console.error(err);
     return new Response(JSON.stringify({ error: "Something went wrong" }), {
