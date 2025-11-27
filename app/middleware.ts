@@ -6,7 +6,6 @@ export function middleware(req: NextRequest) {
 
   const token = req.cookies.get("verifyToken")?.value || "";
   const decoded = verifyToken(token);
-
   const isLoginPage = req.nextUrl.pathname === "/login";
 
   if (!decoded && !isLoginPage) {
@@ -21,5 +20,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login"],
+  matcher: ["/dashboard/:path*", "/login","/api/instagram/:path*","/api/instagram"],
 };
