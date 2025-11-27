@@ -23,7 +23,9 @@ export default function DashboardPage() {
   }, [router]);
 
     if(isLoading){
-    return <BlurLoader isLoading={true}/>
+    return (
+      <BlurLoader isLoading={true}/>
+    )
   }
 
   return <h1>Dashboard Loaded Successfully</h1>;

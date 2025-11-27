@@ -1,12 +1,45 @@
 import { CSSProperties } from "react";
 import Spinner from "./Spinner";
 
-const BlurLoader = ({ isLoading }: { isLoading: boolean }) => {
+type LoaderName =
+  | "ScaleLoader"
+  | "BarLoader"
+  | "BeatLoader"
+  | "BounceLoader"
+  | "CircleLoader"
+  | "ClimbingBoxLoader"
+  | "ClipLoader"
+  | "ClockLoader"
+  | "DotLoader"
+  | "FadeLoader"
+  | "GridLoader"
+  | "HashLoader"
+  | "MoonLoader"
+  | "PacmanLoader"
+  | "PropagateLoader"
+  | "PulseLoader"
+  | "RingLoader"
+  | "RiseLoader"
+  | "RotateLoader"
+  | "ScaleLoader"
+  | "SyncLoader";
+
+type BlurLoaderProps = {
+  isLoading: boolean;
+  name?: LoaderName;
+  color?: string;
+};
+
+const BlurLoader = ({
+  isLoading,
+  name = "ScaleLoader",
+  color = "black",
+}: BlurLoaderProps) => {
   if (!isLoading) return null;
 
   return (
     <div style={styles.overlay}>
-      <Spinner name="ScaleLoader" color={"black"} />
+      <Spinner name={name} color={color} />
     </div>
   );
 };

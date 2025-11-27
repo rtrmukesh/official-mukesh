@@ -2,9 +2,16 @@
 import { MENUS } from "./NavMenuData";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function DesktopNav() {
   const [active, setActive] = useState<number | null>(null);
+
+  const router = useRouter();
+
+  const handleNavigate = (route: string) => {
+    router.push(route);
+  };
 
   return (
     <div className="hidden md:flex gap-8 items-center">
@@ -30,6 +37,7 @@ export default function DesktopNav() {
                 <p
                   key={item?.name}
                   className="py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 cursor-pointer"
+                  onClick={() => handleNavigate(item?.route)}
                 >
                   {item?.name}
                 </p>
