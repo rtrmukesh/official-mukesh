@@ -36,6 +36,11 @@ model Integration {
   object_id     String?
   object_name   String?
 
+  // Instagram specific
+  insta_business_id   String?
+  insta_user_name     String?
+  insta_account_type  String?
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   deletedAt     DateTime?

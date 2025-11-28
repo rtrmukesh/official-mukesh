@@ -3,10 +3,11 @@ import InstagramService from "../instagram.service";
 import { verifyToken } from "@/lib/jwt";
 
 export async function GET(request: NextRequest) {
+  console.log("--------")
   const searchParams = request.nextUrl.searchParams;
   const code = searchParams.get("code"); 
   const state = searchParams.get("state");
-
+console.log("---------------------->>>",code)
   if (!state) {
     return NextResponse.json(
       { error: "State parameter missing!" },
@@ -30,4 +31,13 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+export async function POST(request: NextRequest) {
+  console.log("---------post")
+}
+
+
+export async function PUT(request: NextRequest) {
+  console.log("---------put")
 }

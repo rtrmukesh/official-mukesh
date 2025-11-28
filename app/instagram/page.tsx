@@ -51,7 +51,12 @@ export default function InstagramConnect() {
   }, []);
 
   const handleConnect = () => {
-    const url = `https://www.facebook.com/v24.0/dialog/oauth?client_id=${process.env.NEXT_PUBLIC_INSTAGRAM_APP_ID}&redirect_uri=${process.env.NEXT_PUBLIC_APP_URL}/api/instagram/callback&scope=instagram_basic,instagram_manage_insights,instagram_manage_comments,instagram_manage_messages,pages_show_list,pages_read_engagement,pages_manage_metadata&response_type=code&state=${encodedToken}`;
+    // const url = `https://www.instagram.com/oauth/authorize?force_reauth=true&client_id=713048034752152&redirect_uri=${process.env.NEXT_PUBLIC_APP_URL}/api/instagram/callback&response_type=code&scope=instagram_business_basic%2Cinstagram_business_manage_messages%2Cinstagram_business_manage_comments%2Cinstagram_business_content_publish%2Cinstagram_business_manage_insights&state=${encodedToken}`;
+
+   const url = `https://www.instagram.com/oauth/authorize?force_reauth=true&client_id=713048034752152&redirect_uri=https://opponents-quantity-outlet-roulette.trycloudflare.com/api/instagram/callback&response_type=code&scope=instagram_business_basic%2Cinstagram_business_manage_messages%2Cinstagram_business_manage_comments%2Cinstagram_business_content_publish%2Cinstagram_business_manage_insights`;
+
+
+
 
     window.location.href = url;
   };
