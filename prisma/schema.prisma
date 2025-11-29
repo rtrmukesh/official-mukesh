@@ -1,63 +1,52 @@
-
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") 
+  url      = env("DATABASE_URL")
 }
 
-
-/* ✴---User Model---✴ */
+/// ✴---User Model---✴
 model User {
-  id              String   @id @default(cuid())
-  name            String
-  email           String   @unique
-  google_unique_id String?  // optional, can be null
-  profile_url     String?   // optional, can be null
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  deletedAt       DateTime? // optional soft delete
-
-  integrations   Integration[]
+  id               String        @id @default(cuid())
+  name             String
+  email            String        @unique
+  createdAt        DateTime      @default(now())
+  deletedAt        DateTime?
+  google_unique_id String?
+  profile_url      String?
+  updatedAt        DateTime      @updatedAt
+  integrations     Integration[]
 }
-
 
 model Integration {
-  id            String   @id @default(cuid())
-  user_id        String
-  autoReplies AutoReply[]
-  user          User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  access_token  String
-  refresh_token String?
-  object_id     String?
-  object_name   String?
-
-  // Instagram specific
-  insta_business_id   String?
-  insta_user_name     String?
-  insta_account_type  String?
-
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  deletedAt     DateTime?
-
+  id                 String      @id @default(cuid())
+  user_id            String
+  access_token       String
+  refresh_token      String?
+  object_id          String?
+  object_name        String?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  deletedAt          DateTime?
+  insta_account_type String?
+  insta_business_id  String?
+  insta_user_name    String?
+  autoReplies        AutoReply[]
+  user               User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
 
-
-
 model AutoReply {
-  id          String   @id @default(cuid())
+  id            String       @id @default(cuid())
   integrationId String?
+  mediaId       String
+  targetText    String
+  replyText     String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  media_url     String
+  media_type    String
+  alwaysReply   Boolean      @default(false)
   integration   Integration? @relation(fields: [integrationId], references: [id])
-  mediaId     String   // Instagram media ID
-  targetText  String   // The text that triggers this auto-reply
-  replyText   String   // The text to reply automatically
-  media_url   String   // The URL of the media
-  media_type  String   // The type of the media (e.g., IMAGE, VIDEO)
-  alwaysReply Boolean @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 }
