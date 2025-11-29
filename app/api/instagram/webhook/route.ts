@@ -37,11 +37,12 @@ export async function POST(request: NextRequest) {
     const username = value.from?.username;
     const text = value.text;
 
+    const whereClause: any = {
+      mediaId: value?.value?.media?.id,
+    };
+
     const getAutoReplayList = await prisma.autoReply.findMany({
-      where: {
-        mediaId: value?.value?.media?.id,
-        targetText: text,
-      },
+      where: whereClause,
       include: {
         integration: true,
       },
@@ -54,14 +55,28 @@ export async function POST(request: NextRequest) {
     for (let i = 0; i < getAutoReplayList.length; i++) {
       const value = getAutoReplayList[i];
 
-      await fetch(`https://graph.facebook.com/v21.0/${commentId}/replies`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: value?.replyText,
-          access_token: pageToken,
-        }),
-      });
+      if (!value.alwaysReply) {
+        if (text == value.targetText) {
+          await fetch(`https://graph.facebook.com/v21.0/${commentId}/replies`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              message: value?.replyText,
+              access_token: pageToken,
+            }),
+          });
+        }
+      } else {
+        await fetch(`https://graph.facebook.com/v21.0/${commentId}/replies`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: value?.replyText,
+            access_token: pageToken,
+          }),
+        });
+      }
+
 
       // await fetch(
       //   `https://graph.facebook.com/v21.0/${businessAccountId}/messages`,
