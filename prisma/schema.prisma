@@ -57,7 +57,7 @@ model AutoReply {
   replyText   String   // The text to reply automatically
   media_url   String   // The URL of the media
   media_type  String   // The type of the media (e.g., IMAGE, VIDEO)
-  alwaysReply Boolean? // Whether to always reply or not
+  alwaysReply Boolean @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
