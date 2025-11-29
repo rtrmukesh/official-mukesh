@@ -17,6 +17,7 @@ export default function InstagramFeed() {
   const getAutoReplies = async () => {
     const token = await getSessionToken();
     if (!token?.token) return;
+    setLoading(true);
     const res = await fetch("/api/instagram/autoCreate", {
       method: "GET",
       headers: {
@@ -27,6 +28,7 @@ export default function InstagramFeed() {
 
     const result = await res.json();
     setAutoCreateList(result?.data || []);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export default function InstagramFeed() {
       <Drawer isOpen={isModelOpen} onClose={() => setIsModelOpen(false)}>
         <InstagramModelBody handleSend={handleCreateAutoReply} />
       </Drawer>
-      <InstagramAutoReplyList mediaList={autoCreateList} />
+      <InstagramAutoReplyList mediaList={autoCreateList} getAutoReplies={getAutoReplies} />
     </Container>
   );
 }
