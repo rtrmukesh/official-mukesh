@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     for (let i = 0; i < getAutoReplayList.length; i++) {
       const value = getAutoReplayList[i];
 
-      if (!value.alwaysReply) {
+      if (value.targetText !== "All") {
         if (text == value.targetText) {
           await fetch(`https://graph.facebook.com/v21.0/${commentId}/replies`, {
             method: "POST",

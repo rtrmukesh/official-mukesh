@@ -130,13 +130,7 @@ export async function PUT(req: NextRequest) {
     const userDetail = verifyToken(token);
 
     const body = await req.json();
-    const { mediaId, targetText, replyText, alwaysReply } = body;
-if (typeof alwaysReply !== "boolean") {
-  return NextResponse.json({
-    success: false,
-    error: "Invalid alwaysReply value",
-  });
-}
+    const { mediaId, targetText, replyText } = body;
 
     if (!mediaId || !targetText || !replyText) {
       return NextResponse.json({
@@ -158,7 +152,7 @@ if (typeof alwaysReply !== "boolean") {
       data: {
         targetText,
         replyText,
-        alwaysReply: alwaysReply ?? false,
+        // alwaysReply: alwaysReply ?? false,
       },
     });
 
