@@ -1,7 +1,13 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaLinkedin, FaInstagram, FaFacebookF, FaGithub } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaFacebookF,
+  FaGithub,
+  FaChevronDown,
+} from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import ProfileImage from "@/components/ProfileImage";
 
@@ -37,7 +43,7 @@ export default function ProfileCard({
           onClick={() => setShowContacts(!showContacts)}
           className="
           absolute top-0 right-0
-          w-24 h-8  
+          w-14 h-7 sm:w-24 sm:h-8 lg:w-24 lg:h-8
           flex items-center justify-center 
           text-xs font-medium
           rounded-tr-[1.25rem] rounded-bl-[1.25rem]
@@ -52,7 +58,10 @@ export default function ProfileCard({
           cursor-pointer
   "
         >
-          {showContacts ? "Close" : "Contacts"}
+          <span className="hidden sm:inline">
+            {showContacts ? "Close" : "Contacts"}
+          </span>
+          <FaChevronDown className="text-[100%]  cursor-pointer duration-200 sm:hidden" />
         </button>
 
         {/* Profile Image */}
@@ -150,9 +159,7 @@ export default function ProfileCard({
               </div>
               <div className="w-full h-[1px] bg-gray-700 rounded-full p-0"></div>
               {/* SOCIAL */}
-              <div
-                className="flex justify-start gap-4  text-xl"
-              >
+              <div className="flex justify-start gap-4  text-xl">
                 <FaLinkedin className="hover:text-blue-500 duration-200 cursor-pointer" />
                 <FaInstagram className="hover:text-pink-500 duration-200 cursor-pointer" />
                 <FaFacebookF className="hover:text-blue-400 duration-200 cursor-pointer" />

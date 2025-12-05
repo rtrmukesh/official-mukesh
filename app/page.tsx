@@ -17,25 +17,22 @@ export default function Home() {
           </div>
 
           {/* Right Scrollable Content */}
-          <div className="flex-1  border border-white/15 rounded-2xl  backdrop-blur-sm">
+          <div className="flex-1  border border-white/15  rounded-[1.25rem]  backdrop-blur-sm">
+            <NavigationTab />
             <AboutSection />
             <HighlightsSection />
             <PortfolioSection />
-
-            {/* Desktop Bottom Nav */}
-            <div className="hidden lg:flex justify-end pb-10">
-              <NavigationTab />
-            </div>
           </div>
         </div>
 
         {/* Mobile | Single Column */}
         <div className="lg:hidden space-y-7 pb-28">
-          <ProfileCard  isMobile={true} />
-          <div>
-          <AboutSection />
-          <HighlightsSection />
-          <PortfolioSection />
+          <ProfileCard isMobile={true} />
+          <div className="relative">
+            <NavigationTab />
+            <AboutSection />
+            <HighlightsSection />
+            <PortfolioSection />
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="bg-[#1e1e1f] p-6 rounded-b-2xl border border-[#1e1f21] shadow-lg"
+      className="bg-[#1e1e1f] p-6 rounded-b-2xl border-b border-l border-r border-gray-800 shadow-lg"
     >
       <h3 className="text-xl font-semibold">Featured Portfolios</h3>
       <p className="text-gray-400 mt-1 text-sm">
