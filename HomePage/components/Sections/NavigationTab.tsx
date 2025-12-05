@@ -1,6 +1,6 @@
 "use client";
 
-export default function NavigationTab() {
+const  NavigationTab=()=> {
   return (
     <button
       className="
@@ -12,7 +12,6 @@ export default function NavigationTab() {
         bg-gradient-to-r from-[hsl(190,82%,20%)] to-black
         border border-[hsl(190,82%,72%)]
         text-[hsl(190,82%,72%)]
-        hover:text-white hover:bg-[#0f2c33]
         duration-300 cursor-pointer
         hidden sm:flex
         z-[1]
@@ -20,12 +19,13 @@ export default function NavigationTab() {
     >
       {/* Desktop / Tablet Text */}
       <span className="hidden sm:flex items-center gap-3">
-        <span className="cursor-pointer hover:underline">About</span>
-        <span className="cursor-pointer hover:underline">Resume</span>
-        <span className="cursor-pointer hover:underline">Portfolio</span>
-        <span className="cursor-pointer hover:underline">Contact</span>
-        <span className="cursor-pointer hover:underline">Gallery</span>
+        <span className="cursor-pointer hover:text-white">About</span>
+        <span className="cursor-pointer hover:text-white">Resume</span>
+        <span className="cursor-pointer hover:text-white">Portfolio</span>
+        <span className="cursor-pointer hover:text-white">Contact</span>
+        <span className="cursor-pointer hover:text-white">Gallery</span>
       </span>
     </button>
   );
 }
+export default NavigationTab
