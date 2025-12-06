@@ -9,7 +9,7 @@ export default function AboutSection() {
       <div className="w-20 h-[3px] bg-blue-400 mt-2 rounded-tr-[1.25rem]" />
 
       <p className="text-gray-300 mt-4 leading-relaxed">
-        I'm Mukesh, a Software Engineer based in Bangalore, India — passionate
+        I&apos;m Mukesh, a Software Engineer based in Bangalore, India — passionate
         about building scalable Web and Mobile applications (iOS & Android)
         using modern technologies to solve real-world problems.
       </p>
