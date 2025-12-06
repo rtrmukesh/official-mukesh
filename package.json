@@ -10,6 +10,7 @@
     "syncDb": "npx prisma db push && npx prisma generate"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@prisma/client": "^6.19.0",
     "dotenv": "^17.2.3",
     "firebase": "^12.6.0",

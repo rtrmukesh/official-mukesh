@@ -4,6 +4,7 @@ import HighlightsSection from "@/HomePage/components/Sections/HighlightsSection"
 import PortfolioSection from "@/HomePage/components/Sections/PortfolioSection";
 import NavigationTab from "@/HomePage/components/Sections/NavigationTab";
 import ProfileCard from "@/HomePage/components/ProfileCard/ProfileCard";
+import MobileNavigationTab from "@/HomePage/components/Sections/MobileNavigationTab";
 
 export default function Home() {
   return (
@@ -37,10 +38,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Mobile Bottom Nav */}
-      <div className="lg:hidden fixed bottom-0 left-0 w-full bg-[#0b0b0d]/95 backdrop-blur-md border-t border-white/10 py-3">
-        <NavigationTab />
-      </div>
+        <MobileNavigationTab />
     </main>
   );
 }
