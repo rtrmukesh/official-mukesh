@@ -99,6 +99,12 @@ const MobileNavigationTab = () => {
           transition={{ duration: 0.12, type: "spring", stiffness: 200 }}
           onTapStart={() => navigator.vibrate?.(12)}
           className="flex items-center justify-center select-none"
+          style={{
+            WebkitUserSelect: "none",
+            userSelect: "none",
+            WebkitTapHighlightColor: "transparent",
+            touchAction: "none",
+          }}
           onTouchStart={(e) => {
             e.preventDefault();
             startLongPress();
