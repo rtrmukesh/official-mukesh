@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import PagePreloader from "@/components/PagePreloader";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +15,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const GAID = process.env.GA_ID || ""
+const GTMID = process.env.GTM_ID || ""
 
 export const metadata: Metadata = {
   title: "Mukesh M — Full Stack Developer",
@@ -79,17 +82,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/icon?<generated>" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-icon?<generated>" type="image/png" sizes="192x192" />
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/png"
+          sizes="192x192"
+        />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <GoogleTagManager gtmId={GTMID} />
         <PagePreloader>
           <ThemeProvider>{children}</ThemeProvider>
         </PagePreloader>
 
         <Toaster richColors closeButton position="top-right" />
+      <GoogleAnalytics gaId={GAID} />
       </body>
     </html>
   );

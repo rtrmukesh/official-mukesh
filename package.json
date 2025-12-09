@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@next/third-parties": "^16.0.8",
     "@prisma/client": "^6.19.0",
     "dotenv": "^17.2.3",
     "firebase": "^12.6.0",
@@ -43,7 +44,7 @@
     "baseline-browser-mapping": "^2.9.3",
     "eslint": "^9",
     "eslint-config-next": "^16.0.7",
-    "next": "^16.0.7",
+    "next": "^16.0.8",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
