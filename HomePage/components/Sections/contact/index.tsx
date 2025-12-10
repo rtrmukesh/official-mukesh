@@ -1,9 +1,10 @@
 "use client";
 
+import logo from "@/assets/images/logo.svg";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { MdCall, MdEmail } from "react-icons/md";
 import QRCode from "react-qr-code";
-import logo from "@/assets/images/logo.svg";
 
 const ContactSection = () => {
   // VCARD DATA
@@ -91,26 +92,56 @@ END:VCARD`;
           </div>
 
           {/* RIGHT: QR Code */}
+
           <div className="flex-shrink-0">
-            <div className="relative w-[60px] sm:w-[90px] md:w-[150px]">
+            <motion.div
+              className="relative w-[60px] sm:w-[90px] md:w-[150px]"
+              initial={{ scale: 1, opacity: 0.9 }}
+              whileHover={{
+                scale: 1.12,
+                opacity: 1,
+                transition: {
+                  duration: 0.45,
+                  ease: [0.22, 1, 0.36, 1], // super smooth (apple spring-ish)
+                },
+              }}
+            >
               {/* QR code → only desktop */}
               <div className="hidden md:block">
-                <QRCode
-                  value={vcardData}
-                  size={180}
-                  className="rounded-lg border border-gray-600 p-2 bg-white w-full h-auto"
-                />
+                <motion.div
+                  initial={{ opacity: 0.6 }}
+                  whileHover={{
+                    opacity: 1,
+                    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                  }}
+                >
+                  <QRCode
+                    value={vcardData}
+                    size={180}
+                    className="
+                        rounded-lg border border-gray-600 p-2 bg-white 
+                        w-full h-auto
+                      "
+                  />
+                </motion.div>
               </div>
 
-              {/* Logo overlay → visible on mobile + tablet + desktop */}
+              {/* Logo overlay → mobile/tablet/desktop */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" md:bg-[#1e1e1f] rounded-lg shadow-md p-1">
+                <motion.div
+                  className="md:bg-[#1e1e1f] rounded-lg shadow-md"
+                  initial={{ scale: 1 }}
+                  whileHover={{
+                    scale: 1.08,
+                    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                  }}
+                >
                   <div
                     className="
                       relative 
-                      w-25 h-25          /* mobile */
-                      sm:w-24 sm:h-24    /* tablet */
-                      md:w-10 md:h-10    /* desktop */
+                      w-25 h-25
+                      sm:w-24 sm:h-24
+                      md:w-10 md:h-10
                       rounded-md overflow-hidden
                     "
                   >
@@ -123,15 +154,16 @@ END:VCARD`;
                       onClick={() => openVCard()}
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
       {/* CONTACT FORM */}
-      <div className="mt-10 bg-[#1e1e1f] border border-gray-700 rounded-xl p-6">
+      {/* ✴---Mobile View---✴ */}
+      <div className="mt-10 bg-[#1e1e1f] md:hidden">
         <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -154,18 +186,64 @@ END:VCARD`;
         />
 
         {/* ATTACH PDF */}
-        <div className="flex items-center justify-between bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4">
-          <label className="text-gray-300 cursor-pointer flex items-center gap-2">
+        <div
+          className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] 
+              hover:text-[hsl(190,100%,72%)]
+              transition"
+        >
+          <label className="flex items-center gap-2">
             📎 <span>Attach PDF (Optional)</span>
             <input type="file" accept="application/pdf" className="hidden" />
           </label>
-          <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
         </div>
+        <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
 
         {/* BUTTON */}
-        <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
+        {/* <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
           Send Message
-        </button>
+        </button> */}
+      </div>
+
+      {/* ✴---WebView---✴ */}
+      <div className="mt-10 bg-[#1e1e1f] border border-gray-700 rounded-xl p-6 hidden md:block">
+        <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+          />
+        </div>
+
+        <textarea
+          rows={5}
+          placeholder="Your Message"
+          className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
+        />
+
+        {/* ATTACH PDF */}
+        <div
+          className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] 
+              hover:text-[hsl(190,100%,72%)]
+              transition"
+        >
+          <label className="flex items-center gap-2">
+            📎 <span>Attach PDF (Optional)</span>
+            <input type="file" accept="application/pdf" className="hidden" />
+          </label>
+        </div>
+        <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
+
+        {/* BUTTON */}
+        {/* <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
+          Send Message
+        </button> */}
       </div>
     </section>
   );
