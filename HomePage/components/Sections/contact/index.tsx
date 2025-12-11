@@ -38,8 +38,10 @@ END:VCARD`;
       {/* MAP */}
       <div className="w-full overflow-hidden rounded-xl border border-gray-700">
         <iframe
-          className="w-full h-[300px] md:h-[380px] grayscale brightness-75"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.4163!2d77.5962!3d12.9122"
+          className="w-full h-[300px] md:h-[380px]  grayscale invert"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.4830322446987!2d77.64396701222563!3d12.876631787377708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14bab90b6b8b%3A0xfdb3a392b6148613!2sThiDiff%20Technologies!5e0!3m2!1sen!2sin!4v1765430359242!5m2!1sen!2sin"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
 
@@ -129,19 +131,15 @@ END:VCARD`;
               {/* Logo overlay → mobile/tablet/desktop */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  className="md:bg-[#1e1e1f] rounded-lg shadow-md"
+                  className="md:bg-[#1e1e1f] rounded-lg"
                   initial={{ scale: 1 }}
-                  whileHover={{
-                    scale: 1.08,
-                    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-                  }}
                 >
                   <div
                     className="
                       relative 
                       w-25 h-25
                       sm:w-24 sm:h-24
-                      md:w-10 md:h-10
+                      md:w-9 md:h-9
                       rounded-md overflow-hidden
                     "
                   >
@@ -241,9 +239,9 @@ END:VCARD`;
         <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
 
         {/* BUTTON */}
-        {/* <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
+        <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
           Send Message
-        </button> */}
+        </button>
       </div>
     </section>
   );
