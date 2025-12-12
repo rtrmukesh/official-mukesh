@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MdCall, MdEmail } from "react-icons/md";
 import QRCode from "react-qr-code";
+import FormSubmit from "./components/FormSubmit";
 
 const ContactSection = () => {
   // VCARD DATA
@@ -160,89 +161,7 @@ END:VCARD`;
       </div>
 
       {/* CONTACT FORM */}
-      {/* ✴---Mobile View---✴ */}
-      <div className="mt-10 bg-[#1e1e1f] md:hidden">
-        <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
-          />
-        </div>
-
-        <textarea
-          rows={5}
-          placeholder="Your Message"
-          className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
-        />
-
-        {/* ATTACH PDF */}
-        <div
-          className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] 
-              hover:text-[hsl(190,100%,72%)]
-              transition"
-        >
-          <label className="flex items-center gap-2">
-            📎 <span>Attach PDF (Optional)</span>
-            <input type="file" accept="application/pdf" className="hidden" />
-          </label>
-        </div>
-        <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
-
-        {/* BUTTON */}
-        {/* <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
-          Send Message
-        </button> */}
-      </div>
-
-      {/* ✴---WebView---✴ */}
-      <div className="mt-10 bg-[#1e1e1f] border border-gray-700 rounded-xl p-6 hidden md:block">
-        <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
-          />
-        </div>
-
-        <textarea
-          rows={5}
-          placeholder="Your Message"
-          className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
-        />
-
-        {/* ATTACH PDF */}
-        <div
-          className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] 
-              hover:text-[hsl(190,100%,72%)]
-              transition"
-        >
-          <label className="flex items-center gap-2">
-            📎 <span>Attach PDF (Optional)</span>
-            <input type="file" accept="application/pdf" className="hidden" />
-          </label>
-        </div>
-        <span className="text-xs text-gray-500">Only PDF up to 1 MB</span>
-
-        {/* BUTTON */}
-        <button className="mt-5 w-full md:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600">
-          Send Message
-        </button>
-      </div>
+      <FormSubmit />
     </section>
   );
 };
