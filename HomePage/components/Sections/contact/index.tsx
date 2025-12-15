@@ -32,7 +32,7 @@ END:VCARD`;
   };
 
   return (
-    <section className="bg-[#1e1e1f] p-5 border-t border-l border-r border-gray-800 rounded-t-[1.25rem]">
+    <section className="bg-[#1e1e1f] p-5 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
       <h2 className="text-3xl font-bold text-white mb-2">Let’s Connect</h2>
       <div className="w-24 h-[3px] bg-blue-400 rounded-full mb-8" />
 

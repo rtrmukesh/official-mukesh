@@ -36,7 +36,7 @@ export default function Home() {
         }
       />
       <main className="bg-[#0b0b0d] text-white">
-        <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 py-12 min-h-[100vh]">
           {/* Desktop | Two Column */}
           <div className="hidden lg:flex gap-[2.3%]">
             {/* Left Sticky ProfileCard */}
