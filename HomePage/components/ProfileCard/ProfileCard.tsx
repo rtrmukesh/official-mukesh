@@ -28,7 +28,7 @@ export default function ProfileCard({
 
   const profileData = {
     email: "contact@themukesh.com",
-    linkedin: "https://www.linkedin.com/in/mukesh-m-6b9404242/",
+    linkedin: "www.linkedin.com/in/mukesh-murugaiyan",
     instagram: "https://www.instagram.com/rtr_mukesh_/",
     facebook: "https://www.facebook.com/share/17Z3SPtSSt/?mibextid=wwXIfr",
     github: "https://github.com/rtrmukesh",
