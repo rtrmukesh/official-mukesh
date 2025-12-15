@@ -21,7 +21,7 @@ export const localBusinesses: LocalBusinessJsonLdProps[] = [
     },
     sameAs: [
       "https://github.com/rtrmukesh",
-      "https://www.linkedin.com/in/mukesh-m-6b9404242",
+      "www.linkedin.com/in/mukesh-murugaiyan",
       "https://www.instagram.com/rtr_mukesh_/",
       "https://maps.app.goo.gl/Z9h6cxKiEvwEApyt7",
     ],
