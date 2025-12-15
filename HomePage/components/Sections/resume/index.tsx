@@ -23,23 +23,6 @@ const ResumeSection = () => {
       description:
         "Designed and developed high-quality web, Android, iOS, and desktop applications. Delivered user-friendly interfaces, seamless performance, and cross-platform functionality. Collaborated with teams to ensure timely project delivery and maintain professional coding standards.",
     },
-    // {
-    //   type: "item",
-    //   title: "Software Development Engineer I",
-    //   company: "Amazon Development Centre",
-    //   period: "Jul 2018 — Sep 2022",
-    //   description:
-    //     "Optimized service and fleet data to reduce costs, developed a preregistration system to streamline onboarding, and implemented a two-tier caching architecture to improve reliability. Built a real-time service metrics web app using Java Spring MVC with an intuitive frontend.",
-    // },
-    // {
-    //   type: "item",
-    //   title: "SDE Intern",
-    //   company: "Amazon Development Centre",
-    //   period: "Jan 2018 — Jun 2018",
-    //   description:
-    //     "Created a web application using Java Spring MVC and an intuitive frontend to analyze service metrics in real-time. Automated the assignment of investigation tasks to engineers by detecting anomalies, enhancing response times.",
-    // },
-    // EDUCATION
     {
       type: "section",
       title: "Education",
@@ -71,7 +54,7 @@ const ResumeSection = () => {
   ];
 
   return (
-    <section className="bg-[#1e1e1f] p-6 border-t border-l border-r border-gray-800 rounded-t-[1.25rem]">
+    <section className="bg-[#1e1e1f] p-6 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
       <h2 className="text-3xl font-bold text-white mb-2">Career Snapshot</h2>
       <div className="w-24 h-[3px] bg-blue-400 rounded-full mb-8" />
 
@@ -79,9 +62,13 @@ const ResumeSection = () => {
         {timeline.map((item, idx) => {
           if (item.type === "section") {
             return (
-              <div key={idx} className="flex items-center gap-3 mt-8 ml-2">
-                {item.icon}
-                <h3 className="text-xl font-semibold text-white">
+              <div key={idx} className="flex relative gap-4 ml-2 mt-8">
+                <div className="relative flex flex-col items-center">
+                  {item.icon}
+                  <div className="absolute top-[91%] w-[1px] h-[90%] bg-gray-700"></div>
+                </div>
+
+                <h3 className="text-xl font-semibold text-white pt-1">
                   {item.title}
                 </h3>
               </div>
@@ -90,14 +77,21 @@ const ResumeSection = () => {
 
           // ITEM
           return (
-            <div key={idx} className="flex relative gap-4 mt-6 ml-8">
+            <div key={idx} className="flex relative gap-4 mt-6 ml-5">
               {/* Timeline Line and Dot */}
               <div className="relative flex flex-col items-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1"></div>
-                {idx !== timeline.length - 1 &&
-                  timeline[idx + 1].type === "item" && (
-                    <div className="absolute top-3 w-[1px] h-[110.5%] bg-gray-700"></div>
-                  )}
+                <div
+                  className="
+                      relative 
+                      w-1.5 h-1.5 
+                      rounded-full 
+                      bg-blue-400
+                      shadow-[0_0_8px_rgba(96,165,250,0.9)]
+                    "
+                ></div>
+                {idx !== timeline.length - 1 && (
+                  <div className="absolute top-[6px] w-[1px] h-[116.5%] bg-gray-700"></div>
+                )}
               </div>
 
               {/* Details */}

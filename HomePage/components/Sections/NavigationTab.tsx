@@ -7,7 +7,7 @@ const NavigationTab: React.FC<NavigationTabProps> = ({
   setTabIndex,
   tabIndex,
 }) => {
-  const menuItems = ["About", "Resume", "Portfolio", "Contact", "Gallery"];
+  const menuItems = ["About", "Resume", "Skills", "Contact", "Gallery"];
   return (
     <>
       {/* ✴---Desktop and web---✴ */}

@@ -11,6 +11,7 @@ import Image from "next/image";
 import mukesh from "@/assets/images/mukesh-mg.png";
 
 import { Fragment, useState } from "react";
+import SkillSection from "@/HomePage/components/Sections/skills";
 
 
 export default function Home() {
@@ -57,6 +58,7 @@ export default function Home() {
 
               {tabIndex == 1 && <ResumeSection />}
               {tabIndex == 3 && <ContactSection />}
+              {tabIndex == 2 && <SkillSection />}
 
             </div>
           </div>
@@ -75,6 +77,7 @@ export default function Home() {
               )}
               {tabIndex == 1 && <ResumeSection />}
               {tabIndex == 3 && <ContactSection />}
+              {tabIndex == 2 && <SkillSection />}
             </div>
           </div>
         </div>
