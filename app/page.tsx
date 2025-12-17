@@ -12,14 +12,14 @@ import mukesh from "@/assets/images/mukesh-mg.png";
 
 import { Fragment, useState } from "react";
 import SkillSection from "@/HomePage/components/Sections/skills";
-
+import IOS26TabMenu from "@/HomePage/components/Sections/IOS26TabMenu";
 
 export default function Home() {
   const [tabIndex, setTabIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Fragment>
-       <OverlayModal
+      <OverlayModal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         body={
@@ -59,7 +59,6 @@ export default function Home() {
               {tabIndex == 1 && <ResumeSection />}
               {tabIndex == 3 && <ContactSection />}
               {tabIndex == 2 && <SkillSection />}
-
             </div>
           </div>
 
@@ -67,17 +66,16 @@ export default function Home() {
           <div className="lg:hidden space-y-7 pb-28">
             <ProfileCard isMobile={true} setIsOpen={setIsOpen} />
             <div className="relative">
-              <NavigationTab setTabIndex={setTabIndex} tabIndex={tabIndex} />
-              {tabIndex == 0 && (
+              <IOS26TabMenu setActiveIndex={setTabIndex} activeIndex={tabIndex}>
                 <>
                   <AboutSection />
                   <HighlightsSection />
                   <PortfolioSection />
                 </>
-              )}
-              {tabIndex == 1 && <ResumeSection />}
-              {tabIndex == 3 && <ContactSection />}
-              {tabIndex == 2 && <SkillSection />}
+                <ResumeSection />
+                <SkillSection />
+                <ContactSection />
+              </IOS26TabMenu>
             </div>
           </div>
         </div>
