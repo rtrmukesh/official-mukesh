@@ -11,6 +11,7 @@ import {
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import ProfileImage from "@/components/ProfileImage";
 import { Courgette } from "next/font/google";
+import NeonSign from "@/components/NeonSign";
 const courgette = Courgette({
   weight: "400",        // Only "400" is available for Courgette
   subsets: ["latin"],   // Subsets you need
@@ -92,12 +93,7 @@ export default function ProfileCard({
 
         {/* Name + Profession */}
         <div className="text-center">
-          <h1
-            className={`text-lg sm:text-xl lg:text-2xl ${courgette.className}`}
-          >
-            Mukesh M
-          </h1>
-
+           <NeonSign text="Mukesh" color="blue" />
           <p
             className="
               text-gray-300 text-[10px] sm:text-xs mt-2

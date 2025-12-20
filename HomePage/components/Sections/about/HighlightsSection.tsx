@@ -1,3 +1,4 @@
+import CountUp from "@/components/CountUp";
 import { AiOutlineStar } from "react-icons/ai";
 
 export default function HighlightsSection() {
@@ -13,14 +14,15 @@ export default function HighlightsSection() {
 
       <div className="mt-5 grid grid-cols-3 gap-6 sm:grid-cols-3 text-center">
         <div>
-          <p className="text-3xl font-bold">+4</p>
+          {/* <p className="text-3xl font-bold">+4</p> */}
+          <CountUp value={4} prefix="+" className="text-3xl font-bold" />
           <span className="text-xs text-gray-400 block">
             YEARS OF EXPERIENCE
           </span>
         </div>
 
         <div>
-          <p className="text-3xl font-bold">+0</p>
+          <CountUp value={0} prefix="+" className="text-3xl font-bold" />
           <span className="text-xs text-gray-400 block">
             PROJECTS COMPLETED
           </span>
@@ -31,7 +33,7 @@ export default function HighlightsSection() {
           <span className="text-xs text-gray-400 block">CERTIFICATIONS</span>
         </div> */}
         <div>
-          <p className="text-3xl font-bold">+5</p>
+          <CountUp value={5} prefix="+" className="text-3xl font-bold" />
           <span className="text-xs text-gray-400 block">
             PROJECTS INPROGRESS
           </span>
