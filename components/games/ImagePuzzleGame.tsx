@@ -93,7 +93,7 @@ export default function PuzzleGame() {
   /* ---------------- WIN CHECK ---------------- */
   const checkWin = (tiles: number[]) => {
     const isWin = tiles.every((t, i) => t === i);
-    if (!isWin) {
+    if (isWin) {
       stopTimer();
       saveBestScore();
       setShowWin(true);

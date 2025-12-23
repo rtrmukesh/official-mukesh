@@ -28,7 +28,7 @@ export default async function GamePage({ params }: Props) {
   const game = games.find((g) => g.slug === slug);
   if (!game) return notFound();
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+    <div className="min-h-screen bg-black text-white">
       <h1 className="text-3xl font-bold">{game.title}</h1>
       <p className="opacity-70 mt-2">{game.description}</p>
       {/* JSON-LD Structured Data */}
@@ -46,7 +46,7 @@ export default async function GamePage({ params }: Props) {
           }),
         }}
       />
-      <div className="mt-6 rounded-xl bg-gray-900 p-4">
+      <div className="mt-6 rounded-xl bg-gray-900 ">
         <GameLoader slug={slug} />
       </div>
     </div>
