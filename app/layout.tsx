@@ -81,6 +81,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  verification: {
+    google: "AUY8DrfbJpplzyCMcTJNiCHYZJ34AB2NphOmTJ1_gfY",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -90,19 +97,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/icon" type="image/png" sizes="32x32" />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-icon"
-          type="image/png"
-          sizes="192x192"
-        />
+      {/* <head>
         <meta
           name="google-site-verification"
           content="AUY8DrfbJpplzyCMcTJNiCHYZJ34AB2NphOmTJ1_gfY"
         />
-      </head>
+      </head> */}
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
