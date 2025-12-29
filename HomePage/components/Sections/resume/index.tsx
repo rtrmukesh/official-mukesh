@@ -56,7 +56,7 @@ const ResumeSection = () => {
   return (
     <section className="bg-[#1e1e1f] p-6 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
       <h2 className="text-3xl font-bold text-white mb-2">Career Snapshot</h2>
-      <div className="w-24 h-[3px] bg-blue-400 rounded-full mb-8" />
+      <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full" />
 
       <div className="flex flex-col">
         {timeline.map((item, idx) => {

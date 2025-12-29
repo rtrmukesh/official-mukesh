@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import {
-    MdDesktopWindows,
-    MdPhoneIphone,
-    MdStorage,
-    MdWeb
+  MdDesktopWindows,
+  MdPhoneIphone,
+  MdStorage,
+  MdWeb,
 } from "react-icons/md";
-import SkillCard from "./components/SkillCard";
+import SkillTimelineItem from "./components/SkillTimelineItem";
 
 const skills = [
   {
@@ -70,7 +71,7 @@ const skills = [
     title: "Backend & APIs",
     subtitle: "Scalable & Secure Systems",
     icon: <MdStorage className="text-2xl text-green-400" />,
-    tech: "Node.js · NestJS · Next.js · Express · Python · JWT · REST · WebSockets · AWS",
+    tech: "Node.js · NestJS · Next.js · Python · JWT · REST · WebSockets · AWS",
     features: [
       "RESTful API Design",
       "JWT-Based Authentication & Authorization",
@@ -89,9 +90,9 @@ const skills = [
   },
   {
     title: "DevOps, Cloud & AWS AI",
-    subtitle: "CI/CD, Scalable Infrastructure & Cloud Intelligence",
+    subtitle: "CI/CD, Cloud Intelligence",
     icon: <MdStorage className="text-2xl text-yellow-400" />,
-    tech: "Docker · GitHub Actions · AWS (EC2, S3, Lambda, Rekognition, Textract, SES) · Terraform · Kubernetes",
+    tech: "Docker · GitHub · AWS (EC2, S3, Lambda, Rekognition, Textract, SES) ",
     features: [
       "Dockerized Application Deployments",
       "CI/CD Pipelines (GitHub Actions / Jenkins)",
@@ -130,22 +131,61 @@ const skills = [
 ];
 
 export default function SkillSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  return (
-    <section className="bg-[#1e1e1f] p-6 rounded-[1.25rem] border border-gray-800">
-      <h2 className="text-3xl font-bold text-white mb-2">Expertise</h2>
-      <div className="w-24 h-[3px] bg-cyan-400 rounded-full mb-10" />
+  const containerRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
 
-      <div className="grid md:grid-cols gap-6">
-        {skills.map((skill, i) => (
-          <SkillCard
-            key={i}
-            skill={skill}
-            index={i}
-            openIndex={openIndex}
-            setOpenIndex={setOpenIndex}
+  useEffect(() => {
+    const updateHeight = () => {
+      if (listRef.current) {
+        setHeight(listRef.current.offsetHeight);
+      }
+    };
+
+    // Initial set
+    updateHeight();
+
+    // Update on window resize
+    window.addEventListener("resize", updateHeight);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 30%", "end end"],
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, height]);
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative bg-[#1e1e1f] p-4 sm:p-8 rounded-2xl border border-gray-800 max-w-7xl mx-auto"
+    >
+      <h2 className="text-3xl font-bold text-white mb-2">Expertise</h2>
+      <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-12" />
+      
+
+      <div className="relative">
+        {/* Timeline Line */}
+        <div className="absolute left-5 sm:left-6 md:left-7 top-0 w-[2px] h-full bg-neutral-700">
+          <motion.div
+            style={{ height: lineHeight }}
+            className="absolute top-0 w-[2px] bg-gradient-to-b from-cyan-400 via-purple-500 to-transparent"
           />
-        ))}
+        </div>
+
+        {/* Timeline Items */}
+        <div
+          ref={listRef}
+          className="flex flex-col gap-16 sm:gap-10 pl-16 sm:pl-20 md:pl-24 lg:pl-28"
+        >
+          {skills.map((skill, index) => (
+            <SkillTimelineItem key={index} skill={skill} />
+          ))}
+        </div>
       </div>
     </section>
   );

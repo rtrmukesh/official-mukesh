@@ -36,7 +36,7 @@ END:VCARD`;
   return (
     <section className="bg-[#1e1e1f] p-5 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
       <h2 className="text-3xl font-bold text-white mb-2">Let’s Connect</h2>
-      <div className="w-24 h-[3px] bg-blue-400 rounded-full mb-8" />
+       <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8" />
 
       {/* MAP */}
       <div className="w-full overflow-hidden rounded-xl border border-gray-700">

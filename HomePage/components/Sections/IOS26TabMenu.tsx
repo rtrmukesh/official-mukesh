@@ -57,20 +57,7 @@ export default function IOS26TabMenu({
     }
   };
 
-  /* Motion variants for swipe animations */
-  const pageVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 120 : -120,
-      opacity: 0,
-      scale: 0.98,
-    }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -120 : 120,
-      opacity: 0,
-      scale: 0.98,
-    }),
-  };
+
 
   return (
     <div>
@@ -79,7 +66,6 @@ export default function IOS26TabMenu({
         <motion.div
           key={activeIndex}
           custom={direction}
-          variants={pageVariants}
           initial="enter"
           animate="center"
           exit="exit"
