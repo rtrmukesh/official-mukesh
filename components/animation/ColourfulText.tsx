@@ -53,7 +53,6 @@ export function ColourfulText({
         return (
           <motion.span
             key={`${char}-${count}-${index}`}
-            initial={{ y: 0 }}
             animate={{
               color,
               y: [0, -3, 0],
