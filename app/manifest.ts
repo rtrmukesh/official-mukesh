@@ -5,26 +5,32 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Mukesh Murugaiyan | Full Stack Developer",
     short_name: "Mukesh M",
     description:
-      "Portfolio of Mukesh M — Web, Android, iOS & Desktop apps developer.",
+      "Freelancer available for Web, Android, iOS, Chrome Extensions & Desktop apps",
     start_url: "/",
     display: "standalone",
-    background_color: "#0b0303", // Dark background to match your site
+    background_color: "#0b0303",
     theme_color: "#0b0303",
     icons: [
       {
-        src: "/icon0.svg",
-        sizes: "512x512",
-        type: "image/svg+xml",
-      },
-      {
-        src: "/apple-touch-icon.png",
+        src: "/web-app-manifest-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/favicon.ico",
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/icon0.svg",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/svg+xml",
+      },
+      {
+        src: "/apple-icon.png",
+        sizes: "192x192",
+        type: "image/png",
       },
     ],
   };

@@ -7,7 +7,7 @@ export const person: Person = {
             familyName: "Mukesh Murugaiyan",
             additionalName: "Mukesh Murugaiyan Full Stack Developer",
             description:
-              "Full Stack Developer — Web, Android, iOS, Desktop Apps",
+              "Full Stack Developer | Web, Android, iOS, Desktop Apps",
             alternateName: "Mukesh Murugaiyan",
             url: "https://themukesh.com",
             identifier: "https://themukesh.com",
