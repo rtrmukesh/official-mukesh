@@ -30,7 +30,7 @@ export const faqs = [
   {
     question: "Do you offer freelance services?",
     answer:
-      "Yes, I am available for freelance work — Web apps, Mobile apps, UI/UX, and API development.",
+      "Yes, I am available for freelance work | Web apps, Mobile apps, UI/UX, and API development.",
   },
   {
     question: "Where are you located?",

@@ -77,10 +77,13 @@ export const metadata: Metadata = {
   verification: {
     google: "AUY8DrfbJpplzyCMcTJNiCHYZJ34AB2NphOmTJ1_gfY",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+ icons: {
+  icon: [
+    { url: "/icon0.svg", type: "image/svg+xml" },
+    { url: "/icon1.png", type: "image/png" },
+  ],
+  apple: "/apple-icon.png",
+},
 };
 
 export default function RootLayout({
@@ -90,13 +93,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <head>
-        <meta
-          name="google-site-verification"
-          content="AUY8DrfbJpplzyCMcTJNiCHYZJ34AB2NphOmTJ1_gfY"
-        />
-      </head> */}
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
