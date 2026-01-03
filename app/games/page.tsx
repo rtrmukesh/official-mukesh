@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { games } from "@/data/games";
+import AdsTBMLayout from "@/components/ads/AdsTBMLayout";
 
 export const metadata = {
   title: "Games | GameZone",
@@ -50,6 +51,9 @@ export const metadata = {
 export default function GamesPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
+      {/* ✴---Temp---✴ */}
+            <AdsTBMLayout adSlot="1054900019" />
+      
       <nav className="w-full  py-4 flex justify-between items-center   backdrop-blur">
         <Link href="/" className="text-3xl font-bold">
           🎮 GameZone
