@@ -1,4 +1,3 @@
-import AdsTBMLayout from "@/components/ads/AdsTBMLayout";
 import GameLoader from "@/components/games/GameLoader";
 import { games } from "@/data/games";
 import type { Metadata } from "next";
@@ -90,13 +89,11 @@ export default async function GamePage({ params }: Props) {
       </nav>
 
       {/* Top Banner Ad */}
-      <AdsTBMLayout adSlot="1672997058" />
       <div className="mt-6 rounded-xl bg-gray-900 ">
         <GameLoader slug={slug} />
       </div>
 
       {/* Bottom Banner Ad (Optional) */}
-      <AdsTBMLayout adSlot="1054900019" />
     </div>
   );
 }

@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     title: "Mukesh Murugaiyan | Full Stack Developer",
     description:
       "Official portfolio of Mukesh Murugaiyan | I build Web, Android, iOS & Desktop applications with modern tech stacks.",
-    site: "@themukesh",
-    creator: "@themukesh",
+    site: "@mukeshmurugaiyan",
+    creator: "@mukeshmurugaiyan",
     images: [
       {
         url: "https://themukesh.com/mukesh-mg.png",
@@ -95,13 +95,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* AdSense global script */}
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7493262026277368"
           crossOrigin="anonymous"
-        />
+        /> */}
         {/* AdSense verification meta tag */}
-        <meta name="google-adsense-account" content="ca-pub-7493262026277368" />
+        {/* <meta name="google-adsense-account" content="ca-pub-7493262026277368" /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

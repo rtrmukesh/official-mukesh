@@ -16,7 +16,6 @@ import IOS26TabMenu from "@/HomePage/components/Sections/IOS26TabMenu";
 import SkillSection from "@/HomePage/components/Sections/skills";
 import { useState } from "react";
 import QRCode from "react-qr-code";
-import AdsTBMLayout from "@/components/ads/AdsTBMLayout";
 
 export default function Home() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -37,7 +36,6 @@ END:VCARD`;
   return (
     <div style={{ minWidth: "40vh" }}>
       {/* ✴---Temp---✴ */}
-      <AdsTBMLayout adSlot="1672997058" />
       <OverlayModal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
