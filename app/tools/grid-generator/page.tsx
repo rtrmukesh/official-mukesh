@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "Visual CSS Grid Tool",
     "CSS Layout Generator",
     "Frontend Tools",
+    "free online pdf tools"
   ],
   alternates: {
     canonical: "https://themukesh.com/tools/css-grid-generator",
