@@ -1,4 +1,5 @@
 import { BookOpen, Code2, FileText, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -26,14 +27,13 @@ const Footer = () => {
           <div className="md:col-span-2 space-y-4">
             <h3 className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Explore More</h3>
             <div className="flex flex-row md:flex-col gap-4 md:gap-3 text-lg md:text-base font-medium md:font-normal">
-              <a href="#" className="hover:text-white transition-colors">Home</a>
-              <a href="#" className="hover:text-white transition-colors">Experience</a>
-              <a href="#" className="hover:text-white transition-colors">Projects</a>
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             </div>
           </div>
 
           {/* Section: Socials */}
-          <div className="md:col-span-3 space-y-4">
+          <div className="md:col-span-2 space-y-4">
             <h3 className="text-green-400 font-semibold text-sm uppercase tracking-wider">Socials</h3>
             <div className="flex flex-wrap md:flex-col gap-x-6 gap-y-4">
               <a href="#" className="flex items-center gap-2 hover:text-white text-gray-300">
@@ -68,7 +68,7 @@ const Footer = () => {
                 <div className="bg-white p-2 rounded-full transition-transform group-hover:scale-105">
                   <Mail size={20} className="text-black" />
                 </div>
-                <span className="text-gray-300 group-hover:text-white font-medium truncate">contact@themukesh.com</span>
+                <span className="text-gray-300 group-hover:text-white font-medium">contact@themukesh.com</span>
               </a>
             </div>
           </div>

@@ -71,7 +71,7 @@ const skills = [
     title: "Backend & APIs",
     subtitle: "Scalable & Secure Systems",
     icon: <MdStorage className="text-2xl text-green-400" />,
-    tech: "Node.js · NestJS · Next.js · Python · JWT · REST · WebSockets · AWS",
+    tech: "Node.js · NestJS · Next.js · Java · Python · JWT · REST · WebSockets · AWS",
     features: [
       "RESTful API Design",
       "JWT-Based Authentication & Authorization",
