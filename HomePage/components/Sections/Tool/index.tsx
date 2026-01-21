@@ -24,7 +24,7 @@ const ToolSection = () => {
   ];
 
   return (
-    <section className="bg-[#1e1e1f] p-6 border border-gray-800 rounded-[1.25rem] h-[-webkit-fill-available]">
+    <section className="bg-[#111111] p-6 border border-gray-800 rounded-[1.25rem] h-[-webkit-fill-available]">
       {/* Header */}
       <div className="flex items-center gap-3 mb-2">
         <div className="p-1.5 rounded-md bg-[#202020] border border-gray-700">
@@ -39,7 +39,7 @@ const ToolSection = () => {
       <div className="w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-6" />
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {tools.map((tool, idx) => (
           <div
             key={idx}
@@ -55,13 +55,13 @@ const ToolSection = () => {
             "
           >
             {/* Preview */}
-            <div className="relative h-80 bg-black overflow-hidden">
+            <div className="relative h-67 bg-black overflow-hidden">
               <iframe
                 src={tool.url}
                 loading="lazy"
-                className="absolute top-0 left-0 transform scale-[0.4] origin-top-left pointer-events-none"
+                className="absolute top-0 left-0 transform scale-[0.3] origin-top-left pointer-events-none"
                 style={{
-                  width: "1440px",
+                  width: "1840px",
                   height: "900px",
                 }}
               />

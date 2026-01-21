@@ -34,7 +34,7 @@ END:VCARD`;
   };
 
   return (
-    <section className="bg-[#1e1e1f] p-5 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
+    <section className="bg-[#111111] p-5 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
       <h2 className="text-3xl font-bold text-white mb-2">Let’s Connect</h2>
        <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8" />
 
@@ -137,7 +137,7 @@ END:VCARD`;
               {/* Logo overlay → mobile/tablet/desktop */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  className="md:bg-[#1e1e1f] rounded-lg"
+                  className="md:bg-[#111111] rounded-lg"
                   initial={{ scale: 1 }}
                 >
                   <div

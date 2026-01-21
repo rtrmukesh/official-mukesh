@@ -18,6 +18,7 @@ import { profilePage } from "@/lib/seo/profilePage";
 import { faqs, images, localBusinesses, softwareApplications } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/data/seo";
 import Providers from "./providers";
+import Footer from "@/components/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -143,6 +144,7 @@ export default function RootLayout({
             <Providers>{children}</Providers>
           </ThemeProvider>
         </PagePreloader>
+        <Footer/>
         <Toaster richColors closeButton position="top-right" />
         <GoogleAnalytics gaId={GAID} />
       </body>

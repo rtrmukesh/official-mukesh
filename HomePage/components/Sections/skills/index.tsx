@@ -162,7 +162,7 @@ export default function SkillSection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#1e1e1f] p-4 sm:p-8 rounded-2xl border border-gray-800 max-w-7xl mx-auto"
+      className="relative bg-[#111111] p-4 sm:p-8 rounded-2xl border border-gray-800 max-w-7xl mx-auto"
     >
       <h2 className="text-3xl font-bold text-white mb-2">Expertise</h2>
       <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-12" />

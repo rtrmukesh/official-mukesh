@@ -47,14 +47,14 @@ export default function ProfileCard({
       {/* MAIN CARD */}
       <div
         className={`
-        bg-[#1e1e1f] text-white
+        bg-[#111111] text-white
         p-6 lg:p-8
         ${
           isMobile && !showContacts
             ? "rounded-2xl lg:rounded-3xl border-b"
             : "rounded-t-2xl lg:rounded-t-3xl"
         }
-        border-t border-l border-r border-gray-800
+        border-t border-l border-r border-white/10
         flex gap-5 lg:gap-8
         flex-row lg:flex-col
         items-center
@@ -136,8 +136,8 @@ export default function ProfileCard({
               damping: 18,
             }}
             className={`
-              bg-[#1e1e1f]
-              border-b border-l border-r border-gray-800
+              bg-[#111111]
+              border-b border-l border-r border-white/10
               shadow-2xl
               overflow-hidden
               lg:block lg:w-[236px]

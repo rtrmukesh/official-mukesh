@@ -10,7 +10,7 @@ import { MdErrorOutline } from "react-icons/md";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center bg-[#1e1e1f] text-white px-6 pt-16 pb-10 min-h-screen">
+    <div className="flex flex-col items-center bg-[#111111] text-white px-6 pt-16 pb-10 min-h-screen">
       {/* 404 Icon */}
       <MdErrorOutline className="text-9xl text-red-500 mb-6" />
 

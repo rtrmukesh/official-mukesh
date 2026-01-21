@@ -83,7 +83,7 @@ const FormSubmit = () => {
         }
       />
       {/* ✴---Mobile View---✴ */}
-      <div className="mt-10 bg-[#1e1e1f] md:hidden">
+      <div className="mt-10 bg-[#111111] md:hidden">
         <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -92,14 +92,14 @@ const FormSubmit = () => {
             placeholder="Full Name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+            className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none"
           />
           <input
             type="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+            className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none"
           />
         </div>
 
@@ -108,11 +108,11 @@ const FormSubmit = () => {
           placeholder="Your Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
+          className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
         />
 
         {/* ATTACH PDF */}
-        <div className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] hover:text-[hsl(190,100%,72%)] transition">
+        <div className="cursor-pointer bg-[#111111] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] hover:text-[hsl(190,100%,72%)] transition">
           <label className="flex items-center gap-2">
             📎 <span>{pdf ? pdf?.name : `Attach PDF (Optional)`}</span>
             <input
@@ -159,7 +159,7 @@ const FormSubmit = () => {
       </div>
 
       {/* ✴---WebView---✴ */}
-      <div className="mt-10 bg-[#1e1e1f] border border-gray-700 rounded-xl p-6 hidden md:block">
+      <div className="mt-10 bg-[#111111] border border-gray-700 rounded-xl p-6 hidden md:block">
         <h3 className="text-xl font-semibold text-white mb-4">Contact Form</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -168,14 +168,14 @@ const FormSubmit = () => {
             placeholder="Full Name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+            className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none"
           />
           <input
             type="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none"
+            className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none"
           />
         </div>
 
@@ -184,11 +184,11 @@ const FormSubmit = () => {
           placeholder="Your Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="bg-[#1f1f20] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
+          className="bg-[#111111] text-white p-3 rounded-lg border border-gray-700 outline-none w-full mt-4"
         />
 
         {/* ATTACH PDF */}
-        <div className="cursor-pointer bg-[#1f1f20] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] hover:text-[hsl(190,100%,72%)] transition">
+        <div className="cursor-pointer bg-[#111111] border border-gray-700 p-3 rounded-lg mt-4 flex flex-col items-center gap-2 text-[hsl(190,82%,42%)] hover:text-[hsl(190,100%,72%)] transition">
           <label className="flex items-center gap-2">
             📎 <span>{pdf ? pdf?.name : `Attach PDF (Optional)`}</span>
             <input

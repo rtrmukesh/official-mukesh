@@ -5,7 +5,7 @@ export default function HighlightsSection() {
   return (
     <section
       id="stats"
-      className="bg-[#1e1e1f] p-6  border-l border-r border-gray-800 shadow-lg"
+      className="bg-[#111111] p-6  border-l border-r border-gray-800 shadow-lg"
     >
       <div className="flex items-center gap-2">
         <AiOutlineStar className="text-xl" />

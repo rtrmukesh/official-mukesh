@@ -48,7 +48,7 @@ export default function SkillTimelineItem({ skill }: { skill: Skill }) {
         </motion.div>
 
         {/* TITLE BOX */}
-        <div className="bg-[#1e1e1f] px-3 sm:px-4 md:px-5 py-2 rounded-lg border border-gray-700 shadow-lg max-w-xs sm:max-w-sm md:max-w-md">
+        <div className="bg-[#111111] px-3 sm:px-4 md:px-5 py-2 rounded-lg border border-gray-700 shadow-lg max-w-xs sm:max-w-sm md:max-w-md">
           <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white whitespace-nowrap">
             {skill.title}
           </h3>

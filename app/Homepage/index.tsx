@@ -18,8 +18,6 @@ import { useState } from "react";
 import QRCode from "react-qr-code";
 import ToolSection from "@/HomePage/components/Sections/Tool";
 
-
-
 const HomePageClient = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +61,7 @@ END:VCARD`;
           <>
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
-                className="md:bg-[#1e1e1f] rounded-lg"
+                className="md:bg-[#111111] rounded-lg"
                 initial={{ scale: 1 }}
               >
                 <div
@@ -86,22 +84,22 @@ END:VCARD`;
             <QRCode
               value={vcardData}
               size={450}
-              className="rounded-lg border border-gray-600 p-2 bg-white p-6 w-full h-auto"
+              className="rounded-3xl border border-white/10 p-2 bg-white p-6 w-full h-auto"
             />
           </>
         }
       />
       <main className="bg-[#0b0b0d] text-white">
-        <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 py-12 min-h-[100vh]">
+        <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 pt-12">
           {/* Desktop | Two Column */}
           <div className="hidden lg:flex gap-[2.3%]">
             {/* Left Sticky ProfileCard */}
-            <div className="flex-shrink-0 sticky top-8 self-start border border-white/15 rounded-3xl  backdrop-blur-sm">
+            <div className="flex-shrink-0 sticky top-8 self-start rounded-3xl border border-white/10  backdrop-blur-sm">
               <ProfileCard setIsOpen={setIsOpen} />
             </div>
 
             {/* Right Scrollable Content */}
-            <div className="flex-1  border border-white/15  rounded-[1.25rem]  backdrop-blur-sm">
+            <div className="flex-1  rounded-3xl border border-white/10  backdrop-blur-sm">
               <NavigationTab setTabIndex={setTabIndex} tabIndex={tabIndex} />
               {tabIndex == 0 && (
                 <>
@@ -119,7 +117,7 @@ END:VCARD`;
           </div>
 
           {/* Mobile | Single Column */}
-          <div className="lg:hidden space-y-7 pb-28">
+          <div className="lg:hidden space-y-7">
             <ProfileCard isMobile={true} setIsOpen={setIsOpen} />
             <div className="relative">
               <IOS26TabMenu setActiveIndex={setTabIndex} activeIndex={tabIndex}>
