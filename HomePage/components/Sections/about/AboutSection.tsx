@@ -1,114 +1,161 @@
 import { ColourfulText } from "@/components/animation/ColourfulText";
+import { motion } from "framer-motion";
 
-export default function AboutSection() {
+export default function AboutSection({ id }: { id?: string }) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, // Stagger effect like waves
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" } as const,
+    },
+  };
+
   return (
-    <section
-      id="about"
-      className="bg-[#111111] p-6 border-t border-l border-r border-white/10  rounded-t-[1.25rem]"
-    >
-      {/* Heading */}
-      <h2 className="text-3xl font-bold mb-2">About Me</h2>
-      <div className="w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-6" />
+    <section id={id || "about"} className="p-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        {/* Heading */}
+        <motion.div variants={itemVariants}>
+          <h2 className="text-3xl font-bold mb-2">About Me</h2>
+          <div className="w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-6" />
+        </motion.div>
 
-      {/* Intro */}
-      <p className="text-gray-300 leading-relaxed">
-        I&apos;m <ColourfulText text="Mukesh" fontSize={28} glowStrength={24} />
-        , a passionate Software Engineer based in Bangalore, India. I specialize
-        in building scalable, secure, and performance-driven Web and Mobile
-        applications for real-world use cases.
-      </p>
+        {/* Intro */}
+        <motion.p variants={itemVariants} className="text-gray-300 leading-relaxed">
+          I&apos;m <ColourfulText text="Mukesh" fontSize={28} glowStrength={24} />
+          , a passionate Software Engineer based in Bangalore, India. I specialize
+          in building scalable, secure, and performance-driven Web and Mobile
+          applications for real-world use cases.
+        </motion.p>
 
-      <p className="text-gray-300 mt-4 leading-relaxed">
-        I hold a postgraduate degree from Dharmapuram Adhinam Arts and Science
-        College, Mayiladuthurai, and I have been working professionally as a
-        Software Development Engineer since 2022.
-      </p>
+        <motion.p variants={itemVariants} className="text-gray-300 mt-4 leading-relaxed">
+          I hold a postgraduate degree from Dharmapuram Adhinam Arts and Science
+          College, Mayiladuthurai, and I have been working professionally as a
+          Software Development Engineer since 2022.
+        </motion.p>
 
-      {/* Website Purpose */}
-      <h3 className="text-xl font-semibold mt-8 mb-2">
-        Purpose of This Website
-      </h3>
+        {/* Website Purpose */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">
+            Purpose of This Website
+          </h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        This website is my personal portfolio and technical platform where I
-        share my professional experience, projects, and practical tools. The
-        goal of this site is to provide meaningful, original, and useful content
-        for developers, recruiters, and technology enthusiasts.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            This website is my personal portfolio and technical platform where I
+            share my professional experience, projects, and practical tools. The
+            goal of this site is to provide meaningful, original, and useful content
+            for developers, recruiters, and technology enthusiasts.
+          </p>
+        </motion.div>
 
-      {/* What Users Get */}
-      <h3 className="text-xl font-semibold mt-8 mb-2">
-        What You&apos;ll Find Here
-      </h3>
+        {/* What Users Get */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">
+            What You&apos;ll Find Here
+          </h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        Visitors can explore my skillset, review my real-world projects, and use
-        various web-based tools designed to simplify everyday development tasks.
-        All content published here is carefully built with a focus on clarity,
-        usability, and long-term value.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            Visitors can explore my skillset, review my real-world projects, and use
+            various web-based tools designed to simplify everyday development tasks.
+            All content published here is carefully built with a focus on clarity,
+            usability, and long-term value.
+          </p>
+        </motion.div>
 
-      {/* Skills */}
-      <h3 className="text-xl font-semibold mt-8 mb-2">Technical Expertise</h3>
+        {/* Skills */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">
+            Technical Expertise
+          </h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        My primary expertise includes React, Next.js, Node.js, React Native,
-        Firebase, REST APIs, and modern backend architectures. I focus on clean
-        code, optimized performance, and secure implementations across both web
-        and mobile platforms.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            My primary expertise includes React, Next.js, Node.js, React Native,
+            Firebase, REST APIs, and modern backend architectures. I focus on clean
+            code, optimized performance, and secure implementations across both web
+            and mobile platforms.
+          </p>
+        </motion.div>
 
-      {/* Trust / Quality */}
-      <h3 className="text-xl font-semibold mt-8 mb-2">Commitment to Quality</h3>
+        {/* Trust / Quality */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">
+            Commitment to Quality
+          </h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        I strongly believe in best development practices, continuous learning,
-        and ethical software engineering. Every feature, tool, or project shared
-        on this site is built from scratch, tested thoroughly, and maintained to
-        ensure accuracy and reliability.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            I strongly believe in best development practices, continuous learning,
+            and ethical software engineering. Every feature, tool, or project shared
+            on this site is built from scratch, tested thoroughly, and maintained to
+            ensure accuracy and reliability.
+          </p>
+        </motion.div>
 
-      {/* Future Vision */}
-      <h3 className="text-xl font-semibold mt-8 mb-2">Future Vision</h3>
+        {/* Future Vision */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">Future Vision</h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        This platform will continue to grow with more advanced tools, technical
-        articles, and open-source contributions aimed at helping developers
-        learn faster and build better software solutions.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            This platform will continue to grow with more advanced tools, technical
+            articles, and open-source contributions aimed at helping developers
+            learn faster and build better software solutions.
+          </p>
+        </motion.div>
 
-      <h3 className="text-xl font-semibold mt-8 mb-2">
-        Core Skills & Technologies
-      </h3>
+        {/* Core Skills */}
+        <motion.div variants={itemVariants}>
+          <h3 className="text-xl font-semibold mt-8 mb-2">
+            Core Skills & Technologies
+          </h3>
 
-      <p className="text-gray-300 leading-relaxed">
-        Over the years, I have worked extensively with a wide range of
-        technologies across frontend, backend, and mobile development. My skill
-        set is focused on building production-ready applications with
-        scalability, security, and performance in mind.
-      </p>
+          <p className="text-gray-300 leading-relaxed">
+            Over the years, I have worked extensively with a wide range of
+            technologies across frontend, backend, and mobile development. My skill
+            set is focused on building production-ready applications with
+            scalability, security, and performance in mind.
+          </p>
+        </motion.div>
 
-      <ul className="list-disc list-inside mt-4 space-y-2 text-gray-300">
-        <li>
-          <strong>Frontend:</strong> React.js · Next.js · TypeScript · Tailwind
-          CSS · HTML5 · CSS3
-        </li>
-        <li>
-          <strong>Backend & APIs:</strong> Node.js · NestJS · Next.js · Java ·
-          Python · JWT · REST · WebSockets · AWS
-        </li>
-        <li>
-          <strong>Mobile:</strong> Expo · React Native (Android & iOS) ·
-          Cross-Platform · Kotlin · Swift · Firebase
-        </li>
-        <li>
-          <strong>Desktop:</strong> Electron · React · Node.js · Python ·
-          WebSockets · Vite
-        </li>
-        <li>
-          <strong>Databases:</strong> Firebase Firestore · MongoDB · SQL · PSQL
-        </li>
-      </ul>
+        <motion.ul
+          variants={itemVariants}
+          className="list-disc list-inside mt-4 space-y-2 text-gray-300"
+        >
+          <li>
+            <strong>Frontend:</strong> React.js · Next.js · TypeScript · Tailwind
+            CSS · HTML5 · CSS3
+          </li>
+          <li>
+            <strong>Backend & APIs:</strong> Node.js · NestJS · Next.js · Java ·
+            Python · JWT · REST · WebSockets · AWS
+          </li>
+          <li>
+            <strong>Mobile:</strong> Expo · React Native (Android & iOS) ·
+            Cross-Platform · Kotlin · Swift · Firebase
+          </li>
+          <li>
+            <strong>Desktop:</strong> Electron · React · Node.js · Python ·
+            WebSockets · Vite
+          </li>
+          <li>
+            <strong>Databases:</strong> Firebase Firestore · MongoDB · SQL · PSQL
+          </li>
+        </motion.ul>
+      </motion.div>
     </section>
   );
 }

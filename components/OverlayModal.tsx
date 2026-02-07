@@ -2,6 +2,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { createPortal } from "react-dom";
+
 interface OverlayProps {
   isOpen: boolean;
   body: React.ReactNode;
@@ -13,18 +15,39 @@ export default function OverlayModal({
   body,
   setIsOpen,
 }: OverlayProps) {
-  return (
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
+  console.log("OverlayModal rendered. isOpen:", isOpen, "mounted:", mounted);
+  // Lock scroll when open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="
             fixed inset-0 
-            bg-black/60 
-            backdrop-blur-[1px] 
+            bg-[#111111] 
             flex items-center justify-center
             z-[9999]
           "
@@ -33,36 +56,21 @@ export default function OverlayModal({
           }}
         >
           <motion.div
-            initial={{ scale: 0.85, opacity: 0, y: 35 }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.55,
-                ease: [0.15, 0.85, 0.25, 1],
-                type: "spring",
-                damping: 22,
-                stiffness: 180,
-              },
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            transition={{
+              type: "spring",
+              damping: 25,
+              stiffness: 300
             }}
-            exit={{
-              scale: 0.9,
-              opacity: 0,
-              y: 20,
-              transition: { duration: 0.55, ease: "easeInOut" },
-            }}
-            className="
-              rounded-2xl 
-              p-6 
-              shadow-2xl 
-              flex items-center justify-center 
-            "
+            className="flex items-center justify-center pointer-events-none"
           >
             {body}
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

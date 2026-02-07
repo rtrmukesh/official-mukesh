@@ -43,7 +43,12 @@ export default function ProfileCard({
   };
 
   return (
-    <div className="relative w-full">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="relative w-full"
+    >
       {/* MAIN CARD */}
       <div
         className={`
@@ -80,23 +85,24 @@ export default function ProfileCard({
           duration-300
           lg:hidden
           cursor-pointer
+          z-10
   "
         >
           <span className="hidden sm:inline">
             {showContacts ? "Close" : "Contacts"}
           </span>
-          <FaChevronDown className="text-[100%]  cursor-pointer duration-200 sm:hidden" />
+          <FaChevronDown className={`text-[100%] cursor-pointer duration-300 sm:hidden ${showContacts ? "rotate-180" : ""}`} />
         </button>
 
         {/* Profile Image */}
         <ProfileImage show={true} setIsOpen={setIsOpen} />
 
-        {/* Name + Profession */}
-        <div className="text-center">
+        {/* Name + Profession + Status */}
+        <div className="text-center flex flex-col items-center">
            <NeonSign text="Mukesh" color="blue" />
           <p
             className="
-              text-gray-300 text-[10px] sm:text-xs mt-2
+              text-gray-300 text-[10px] sm:text-xs mt-2 mb-4
               bg-gray-800/60
               inline-block px-3 py-1
               rounded-full border border-gray-700
@@ -105,6 +111,25 @@ export default function ProfileCard({
           >
             Software Developer
           </p>
+
+          {/* Status Indicators */}
+          <div className="hidden lg:flex flex-col gap-1.5 w-full">
+            <div className="bg-[#1a1a1a] border border-white/5 rounded-lg p-2 py-1.5 flex items-center justify-center gap-2 w-full">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-[10px] font-medium text-gray-300">Open to work</span>
+            </div>
+            
+            <div className="bg-[#1a1a1a] border border-white/5 rounded-lg p-2 py-1.5 flex items-center justify-center gap-2 w-full">
+               <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+              </span>
+              <span className="text-[10px] font-medium text-gray-300">Freelance</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -112,35 +137,18 @@ export default function ProfileCard({
       <AnimatePresence>
         {(showContacts || !isMobile) && (
           <motion.div
-            initial={{ opacity: 0, height: 0, y: -20, borderRadius: 40 }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-              y: 0,
-              borderRadius: 16,
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-              y: -20,
-              borderRadius: 40,
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              stiffness: 80,
-              damping: 18,
-            }}
+            key="contact-panel"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className={`
               bg-[#111111]
               border-b border-l border-r border-white/10
               shadow-2xl
               overflow-hidden
               lg:block lg:w-[236px]
+              rounded-b-2xl lg:rounded-b-3xl
             `}
           >
             <div className="p-6 flex flex-col gap-5">
@@ -204,6 +212,6 @@ export default function ProfileCard({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

@@ -1,10 +1,10 @@
 import CardLayout from "@/components/CardLayout";
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ id }: { id?: string }) {
   return (
     <section
-      id="portfolio"
-      className="bg-[#111111] p-6 rounded-b-2xl border-b border-l border-r border-white/10 shadow-lg"
+      id={id || "portfolio"}
+      className="p-6"
     >
       <h3 className="text-xl font-semibold">Featured Projects</h3>
       <p className="text-gray-400 mt-1 text-sm">

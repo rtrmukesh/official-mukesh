@@ -8,8 +8,9 @@ import QRCode from "react-qr-code";
 import FormSubmit from "./components/FormSubmit";
 type propsTypes = {
   setIsQrOpen?: (value: boolean) => void;
+  id?: string;
 };
-const ContactSection = ({ setIsQrOpen }: propsTypes) => {
+const ContactSection = ({ setIsQrOpen, id }: { setIsQrOpen?: any; id?: string }) => {
   // VCARD DATA
   const vcardData = `BEGIN:VCARD
 VERSION:3.0
@@ -34,7 +35,10 @@ END:VCARD`;
   };
 
   return (
-    <section className="bg-[#111111] p-5 border-t border-l border-r border-gray-800 rounded-[1.25rem]">
+    <section
+      id={id || "contact"}
+      className="p-5"
+    >
       <h2 className="text-3xl font-bold text-white mb-2">Let’s Connect</h2>
        <div className="w-20 sm:w-24 h-[3px] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mb-8" />
 

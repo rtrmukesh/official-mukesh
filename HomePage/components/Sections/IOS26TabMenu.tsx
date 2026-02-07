@@ -4,29 +4,31 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Briefcase, Cpu, Info, Send, ToolCase } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const tabs = [
-  { id: "About", icon: Info, label: "About" },
-  { id: "Resume", icon: Briefcase, label: "Resume" },
-  { id: "Expertise", icon: Cpu, label: "Expertise" },
-  { id: "Contact", icon: Send, label: "Contact" },
-  { id: "Tools", icon: ToolCase, label: "Tools", link: "/games" },
-];
+
 
 export default function IOS26TabMenu({
-  children,
-  setActiveIndex,
-  activeIndex,
+  activeSection,
 }: {
-  children: React.ReactNode[];
-  setActiveIndex: (index: number) => void;
-  activeIndex: number;
+  activeSection: string;
 }) {
   const barRef = useRef<HTMLDivElement | null>(null);
-  const [direction, setDirection] = useState(0);
 
-  useEffect(() => {
-    navigator.vibrate?.(4);
-  }, [activeIndex]);
+  const tabs = [
+    { id: "about-mobile", icon: Info, label: "About" },
+    { id: "resume-mobile", icon: Briefcase, label: "Resume" },
+    { id: "skills-mobile", icon: Cpu, label: "Expertise" },
+    { id: "contact-mobile", icon: Send, label: "Contact" },
+    { id: "tools-mobile", icon: ToolCase, label: "Tools" },
+  ];
+  const handleScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -80;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   /* TAB BAR FINGER FOLLOW */
   const handlePointerMove = (clientX: number) => {
@@ -40,43 +42,12 @@ export default function IOS26TabMenu({
       Math.min(tabs.length - 1, Math.floor(x / tabWidth))
     );
 
-    setActiveIndex(index);
+    // Optional: Could trigger scroll on slide, but might be too aggressive.
+    // For now, let's keep it as visual feedback or click-only.
   };
-
-  /* Drag end handler for page swipe */
-  const handleDragEnd = (_: any, info: any) => {
-    if (info.offset.x < -80 && activeIndex < tabs.length - 1) {
-      setDirection(1);
-      setActiveIndex(activeIndex + 1);
-    }
-    if (info.offset.x > 80 && activeIndex > 0) {
-      setDirection(-1);
-      setActiveIndex(activeIndex - 1);
-    }
-  };
-
-
 
   return (
     <div>
-      {/* PAGE CONTENT – SWIPE WITH ANIMATION */}
-      <AnimatePresence mode="wait" initial={false} custom={direction}>
-        <motion.div
-          key={activeIndex}
-          custom={direction}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ type: "spring", stiffness: 420, damping: 36 }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={handleDragEnd}
-          className="w-full h-full"
-        >
-          {children[activeIndex]}
-        </motion.div>
-      </AnimatePresence>
-
       {/* FLOATING TAB BAR */}
       <div
         className="fixed left-1/2 -translate-x-1/2 z-50
@@ -91,7 +62,6 @@ export default function IOS26TabMenu({
           }}
           onTouchMove={(e) => {
             e.preventDefault();
-
             handlePointerMove(e.touches[0].clientX);
           }}
           className=" relative flex items-center
@@ -101,15 +71,18 @@ export default function IOS26TabMenu({
           rounded-3xl shadow-xl backdrop-blur-xl border border-black/5 dark:border-white/10 bg-white/70 dark:bg-black/60"
           style={{ touchAction: "none" }}
         >
-          {tabs.map((tab, i) => {
+          {tabs.map((tab) => {
             const Icon = tab.icon;
-            const isActive = i === activeIndex;
+            // Map index logic if needed, but string ID is safer
+
+             // We need to map activeSection string to this tab
+            const isTabActive = activeSection === tab.id || activeSection + "-mobile" === tab.id;
 
             return (
               <motion.button
                 key={tab.id}
                 onClick={() => {
-                    setActiveIndex(i);
+                  handleScrollTo(tab.id);
                 }}
                 whileTap={{ scale: 0.92 }}
                 className="relative
@@ -117,7 +90,7 @@ export default function IOS26TabMenu({
                 md:w-14 md:h-12
                 flex flex-col items-center justify-center"
               >
-                {isActive && (
+                {isTabActive && (
                   <motion.div
                     layoutId="activeTab"
                     transition={{ type: "spring", stiffness: 500, damping: 32 }}
@@ -128,14 +101,14 @@ export default function IOS26TabMenu({
                 <div className="relative z-10 flex flex-col items-center">
                   <Icon
                     className={
-                      isActive
+                      isTabActive
                         ? "w-4 h-4 md:w-[22px] md:h-[22px] text-white dark:text-black"
                         : "w-4 h-4 md:w-[22px] md:h-[22px] text-black/70 dark:text-white/70"
                     }
                   />
                   <span
                     className={`text-[9px] md:text-[10px] mt-0.5 ${
-                      isActive
+                      isTabActive
                         ? "text-white dark:text-black"
                         : "text-black/50 dark:text-white/50"
                     }`}
