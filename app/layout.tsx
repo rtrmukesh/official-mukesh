@@ -19,6 +19,7 @@ import { faqs, images, localBusinesses, softwareApplications } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/data/seo";
 import Providers from "./providers";
 import Footer from "@/components/Footer";
+// import UsefulLinksModal from "@/components/UsefulLinksModal";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -95,7 +96,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en"
+    className="light"
+    style={{colorScheme:"light"}}
+    >
       <head>
         {/* AdSense global script */}
         <script
@@ -144,6 +148,7 @@ export default function RootLayout({
             <Providers>{children}</Providers>
           </ThemeProvider>
         </PagePreloader>
+        {/* <UsefulLinksModal /> */}
         <Footer/>
         <Toaster richColors closeButton position="top-right" />
         <GoogleAnalytics gaId={GAID} />

@@ -335,7 +335,7 @@ const PDFManageTab = () => {
     return <div>Loading.....</div>;
   }
 
-  const pdfData: PdfDataType[] = data.data;
+  const pdfData: PdfDataType[] = data?.data || [];
 
   return (
     <>
@@ -392,7 +392,7 @@ const PDFManageTab = () => {
           <div className="bg-white p-4 rounded-xl shadow-sm border">
             <div className="text-sm text-gray-600 mb-1">Total PDFs</div>
             <div className="text-2xl font-bold text-gray-800">
-              {data.data.length}
+              {data?.data?.length || 0}
             </div>
           </div>
           <div className="bg-white p-4 rounded-xl shadow-sm border">
@@ -420,7 +420,7 @@ const PDFManageTab = () => {
             <div>
               <h2 className="text-xl font-bold text-gray-800">PDF List</h2>
               <p className="text-gray-600 text-sm">
-                Showing {data.data.length} PDFs
+                Showing {data?.data?.length || 0} PDFs
               </p>
             </div>
           </div>

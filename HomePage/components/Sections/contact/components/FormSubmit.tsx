@@ -64,22 +64,27 @@ const FormSubmit = () => {
   return (
     <Fragment>
       <OverlayModal
-        isOpen={loading}
+        isOpen={loading || onFinishLoading}
         body={
-          <Lottie animationData={successAnim} loop={true} className="w-48" />
-        }
-      />
-      <OverlayModal
-        isOpen={onFinishLoading}
-        body={
-          <Lottie
-            animationData={onFinishAnim}
-            loop={false}
-            className="w-48"
-            onComplete={() => {
-              setOnFinishLoading(false);
-            }}
-          />
+          <>
+            {loading && (
+              <Lottie
+                animationData={successAnim}
+                loop={true}
+                className="w-48"
+              />
+            )}
+            {onFinishLoading && (
+              <Lottie
+                animationData={onFinishAnim}
+                loop={false}
+                className="w-48"
+                onComplete={() => {
+                  setOnFinishLoading(false);
+                }}
+              />
+            )}
+          </>
         }
       />
       {/* ✴---Mobile View---✴ */}

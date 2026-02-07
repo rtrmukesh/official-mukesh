@@ -1,12 +1,9 @@
 import CountUp from "@/components/CountUp";
 import { AiOutlineStar } from "react-icons/ai";
 
-export default function HighlightsSection() {
+export default function HighlightsSection({ id }: { id?: string }) {
   return (
-    <section
-      id="stats"
-      className="bg-[#111111] p-6  border-l border-r border-gray-800 shadow-lg"
-    >
+    <section id={id || "highlights"} className="p-6">
       <div className="flex items-center gap-2">
         <AiOutlineStar className="text-xl" />
         <h3 className="text-xl font-semibold">Highlights & Successes</h3>
