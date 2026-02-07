@@ -16,7 +16,7 @@ export default function UsefulLinksModal() {
   const [open, setOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Check if user has already seen/dismissed the modal
   useEffect(() => {
