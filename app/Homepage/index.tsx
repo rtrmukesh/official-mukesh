@@ -18,14 +18,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useInView } from "react-intersection-observer";
+import PopupHeader from "@/components/PopupHeader";
 
 const HomePageClient = () => {
   const [activeSection, setActiveSection] = useState("about");
   const [isOpen, setIsOpen] = useState(false);
   const [isQrOpen, setIsQrOpen] = useState(false);
 
-  // ScrollSpy logic using IntersectionObserver
-  // Using rootMargin to trigger when the section enters the middle part of the screen
   const scrollSpyOptions = { 
     threshold: 0.2, 
     rootMargin: "-20% 0px -20% 0px" 
@@ -36,6 +35,11 @@ const HomePageClient = () => {
   const { ref: skillsRef, inView: skillsInView } = useInView({ ...scrollSpyOptions, threshold: 0.1 });
   const { ref: contactRef, inView: contactInView } = useInView(scrollSpyOptions);
   const { ref: toolsRef, inView: toolsInView } = useInView(scrollSpyOptions);
+  
+  const { ref: navTabRef, inView: navTabInView } = useInView({
+    threshold: 0,
+    initialInView: true,
+  });
 
   useEffect(() => {
     if (aboutInView) setActiveSection("about");
@@ -70,6 +74,11 @@ END:VCARD`;
 
   return (
     <div style={{ minWidth: "40vh" }}>
+      {/* ✴---Popup Header (Only visible when NavTab is hidden on Desktop)---✴ */}
+      <div className="hidden lg:block">
+        <PopupHeader activeSection={activeSection} visible={!navTabInView} />
+      </div>
+
       {/* ✴---Temp---✴ */}
       <OverlayModal
         isOpen={isOpen}
@@ -134,7 +143,9 @@ END:VCARD`;
 
             {/* Right Scrollable Content */}
             <div className="flex-1 rounded-3xl border border-white/10 backdrop-blur-sm relative bg-[#111111]">
-              <NavigationTab activeSection={activeSection} />
+              <div ref={navTabRef}>
+                <NavigationTab activeSection={activeSection} />
+              </div>
 
               
               <div className="flex flex-col">
