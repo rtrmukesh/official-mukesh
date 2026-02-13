@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import PagePreloader from "@/components/PagePreloader";
+// import PagePreloader from "@/components/PagePreloader";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import {
   BreadcrumbJsonLd,
@@ -143,11 +143,11 @@ export default function RootLayout({
           ]}
         />
         <GoogleTagManager gtmId={GTMID} />
-        <PagePreloader>
+        {/* <PagePreloader> */}
           <ThemeProvider>
             <Providers>{children}</Providers>
           </ThemeProvider>
-        </PagePreloader>
+        {/* </PagePreloader> */}
         {/* <UsefulLinksModal /> */}
         <Footer/>
         <Toaster richColors closeButton position="top-right" />
