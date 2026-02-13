@@ -1,9 +1,14 @@
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import "./globals.css";
 // import PagePreloader from "@/components/PagePreloader";
+import Footer from "@/components/Footer";
+import { SEO_KEYWORDS } from "@/data/seo";
+import { faqs, images, localBusinesses, softwareApplications } from "@/lib/seo";
+import { person } from "@/lib/seo/person";
+import { profilePage } from "@/lib/seo/profilePage";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import {
   BreadcrumbJsonLd,
@@ -13,12 +18,7 @@ import {
   ProfilePageJsonLd,
   SoftwareApplicationJsonLd,
 } from "next-seo";
-import { person } from "@/lib/seo/person";
-import { profilePage } from "@/lib/seo/profilePage";
-import { faqs, images, localBusinesses, softwareApplications } from "@/lib/seo";
-import { SEO_KEYWORDS } from "@/data/seo";
 import Providers from "./providers";
-import Footer from "@/components/Footer";
 // import UsefulLinksModal from "@/components/UsefulLinksModal";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -145,6 +145,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId={GTMID} />
         {/* <PagePreloader> */}
           <ThemeProvider>
+            {/* <PopupHeader/> */}
             <Providers>{children}</Providers>
           </ThemeProvider>
         {/* </PagePreloader> */}
