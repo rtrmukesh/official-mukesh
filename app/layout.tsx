@@ -148,10 +148,10 @@ export default function RootLayout({
           <ThemeProvider>
             {/* <PopupHeader/> */}
             <Providers>{children}</Providers>
+            {/* <UsefulLinksModal /> */}
+            <Footer/>
           </ThemeProvider>
         </PagePreloader>
-        {/* <UsefulLinksModal /> */}
-        <Footer/>
         <Toaster richColors closeButton position="top-right" />
         <GoogleAnalytics gaId={GAID} />
       </body>
