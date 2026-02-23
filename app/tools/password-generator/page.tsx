@@ -1,4 +1,3 @@
-import ToolLayout from "@/Layout/ToolLayout";
 import PasswordGenerator from "./components/ClientPage";
 import { SEO_KEYWORDS } from "@/data/seo";
 
@@ -44,9 +43,9 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <ToolLayout>
+    <>
       <PasswordGenerator />
-    </ToolLayout>
+    </>
   );
 };
 
