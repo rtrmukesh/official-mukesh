@@ -1,11 +1,27 @@
 "use client";
-import { MdArrowOutward, MdPassword, MdGridOn, MdPublic } from "react-icons/md";
+import { MdArrowOutward, MdPassword, MdGridOn, MdPublic, MdPhotoCamera, MdImage } from "react-icons/md";
 import { BiBook } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { MdBuild } from "react-icons/md"; // Keep for header
 
 const ToolSection = ({ id }: { id?: string }) => {
   const tools = [
+    {
+      title: "Instagram Downloader",
+      description:
+        "Fast and easy way to download Instagram Reels, Stories, and Posts in high quality. No login required.",
+      url: "tools/instagram-downloader",
+      icon: MdPhotoCamera,
+      gradient: "from-pink-500 to-orange-400",
+    },
+    {
+      title: "AI Image Background Remover",
+      description:
+        "Instantly remove backgrounds from your images for free using our client-side AI tool. Processing is 100% private.",
+      url: "tools/image-bg-remover",
+      icon: MdImage,
+      gradient: "from-purple-400 to-indigo-500",
+    },
     {
       title: "Free Online Book Library",
       description:
