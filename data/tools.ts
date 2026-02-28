@@ -1,4 +1,4 @@
-import { MdPassword, MdGridOn, MdPublic, MdPhotoCamera, MdImage } from "react-icons/md";
+import { MdPassword, MdGridOn, MdPublic, MdPhotoCamera, MdImage, MdPhoneIphone } from "react-icons/md";
 import { BiBook } from "react-icons/bi";
 
 export const tools = [
@@ -57,5 +57,13 @@ export const tools = [
     url: "https://photos.themukesh.com/",
     icon: MdPublic,
     gradient: "from-pink-400 to-purple-500",
+  },
+  {
+    title: "App Icon Generator",
+    description:
+      "Create Xcode-ready iOS AppIcon.appiconset, Android adaptive icons, and Web manifests instantly.",
+    url: "/tools/app-icon-generator",
+    icon: MdPhoneIphone,
+    gradient: "from-indigo-400 to-purple-500",
   },
 ];
