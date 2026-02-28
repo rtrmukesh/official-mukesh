@@ -15,6 +15,14 @@ const ToolSection = ({ id }: { id?: string }) => {
       gradient: "from-pink-500 to-orange-400",
     },
     {
+      title: "Pinterest Downloader",
+      description:
+        "Instantly download Pinterest Videos and Images in high quality for free. Fast, secure, and no login required.",
+      url: "tools/pinterest-downloader",
+      icon: MdImage,
+      gradient: "from-red-500 to-pink-500",
+    },
+    {
       title: "AI Image Background Remover",
       description:
         "Instantly remove backgrounds from your images for free using our client-side AI tool. Processing is 100% private.",
