@@ -7,7 +7,7 @@ export const softwareApplications: SoftwareApplicationJsonLdProps[] = [
     description:
       "Official portfolio web application of Mukesh Murugaiyan (TheMukesh), a Full Stack Developer showcasing web, mobile and desktop applications.",
     url: "https://themukesh.com",
-    image: "https://themukesh.com/mukesh-mg.png",
+    image: "https://themukesh.com/mukesh-mg2.png",
     applicationCategory: "WebApplication",
     applicationSubCategory: "DeveloperPortfolio",
     applicationSuite: "Personal Portfolio",

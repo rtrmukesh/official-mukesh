@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import mukesh from "@/assets/images/mukesh-mg.png";
+import mukesh from "@/assets/images/mukesh-mg2.png";
 
 const ProfileImage = ({ show, setIsOpen }: { show: boolean, setIsOpen?: (value: boolean) => void }) => {
   return (
@@ -15,9 +15,9 @@ const ProfileImage = ({ show, setIsOpen }: { show: boolean, setIsOpen?: (value: 
         >
           <motion.div
             className="w-full h-full"
-            initial={{ scale: 1.5 }}
-            whileHover={{ scale: 1.1 }} 
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            initial={{ scale: 1.0 }}
+            whileHover={{ scale: 1.2 }} 
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <Image
               src={mukesh}

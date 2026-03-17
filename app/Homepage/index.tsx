@@ -1,6 +1,6 @@
 "use client";
 import logo from "@/assets/images/logo.svg";
-import mukesh from "@/assets/images/mukesh-mg.png";
+import mukesh from "@/assets/images/mukesh-mg2.png";
 import MotionVariantWrapper from "@/components/MotionVariantWrapper";
 import OverlayModal from "@/components/OverlayModal";
 import ProfileCard from "@/HomePage/components/ProfileCard/ProfileCard";

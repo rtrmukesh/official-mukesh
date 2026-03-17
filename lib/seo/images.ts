@@ -1,6 +1,6 @@
 export const images = [
   {
-    contentUrl: "https://themukesh.com/mukesh-mg.png",
+    contentUrl: "https://themukesh.com/mukesh-mg2.png",
     creator: {
       "@type": "Person",
       name: "Mukesh Murugaiyan",

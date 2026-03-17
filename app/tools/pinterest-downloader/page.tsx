@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "TheMukesh",
     images: [
       {
-        url: "https://themukesh.com/mukesh-mg.png",
+        url: "https://themukesh.com/mukesh-mg2.png",
         width: 1200,
         height: 630,
         alt: "Pinterest Downloader Tool",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pinterest Video & Image Downloader",
     description: "Download Pinterest Videos and Images in HD instantly. No app required.",
-    images: ["https://themukesh.com/mukesh-mg.png"],
+    images: ["https://themukesh.com/mukesh-mg2.png"],
   },
   robots: {
     index: true,
