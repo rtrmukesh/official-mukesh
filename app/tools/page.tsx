@@ -59,7 +59,7 @@ export default function ToolsPage() {
           />
           <p className="text-gray-400 max-w-2xl leading-relaxed text-sm">
             Explore our collection of free online tools designed to speed up your workflow. 
-            From image processing to developer utilities, we've got you covered.
+            From image processing to developer utilities, we&apos;ve got you covered.
           </p>
         </div>
 

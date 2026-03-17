@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "TheMukesh",
     images: [
       {
-        url: "https://themukesh.com/mukesh-mg.png",
+        url: "https://themukesh.com/mukesh-mg2.png",
         width: 1200,
         height: 630,
         alt: "Instagram Video Downloader Tool",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Instagram Reels & Story Downloader",
     description: "Download Instagram Reels, Stories, and Posts in HD instantly. No app required.",
-    images: ["https://themukesh.com/mukesh-mg.png"],
+    images: ["https://themukesh.com/mukesh-mg2.png"],
   },
   robots: {
     index: true,

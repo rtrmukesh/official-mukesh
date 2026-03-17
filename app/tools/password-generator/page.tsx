@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "YourSiteName",
     images: [
       {
-        url: "https://themukesh.com/mukesh-mg.png",
+        url: "https://themukesh.com/mukesh-mg2.png",
         width: 1200,
         height: 630,
         alt: "SecurePass Generator",
@@ -37,7 +37,7 @@ export const metadata = {
     title: "SecurePass Generator – Strong & Safe Passwords",
     description:
       "Generate strong, secure passwords instantly with SecurePass Generator. Customize length, character types, and avoid similar characters for maximum security.",
-    images: ["https://themukesh.com/mukesh-mg.png"],
+    images: ["https://themukesh.com/mukesh-mg2.png"],
   },
 };
 

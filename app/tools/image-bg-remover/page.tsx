@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "TheMukesh",
     images: [
       {
-        url: "https://themukesh.com/mukesh-mg.png",
+        url: "https://themukesh.com/mukesh-mg2.png",
         width: 1200,
         height: 630,
         alt: "AI Image Background Remover Tool",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Image Background Remover – Free & Private",
     description: "Instantly remove backgrounds from your images for free without uploads.",
-    images: ["https://themukesh.com/mukesh-mg.png"],
+    images: ["https://themukesh.com/mukesh-mg2.png"],
   },
   robots: {
     index: true,
