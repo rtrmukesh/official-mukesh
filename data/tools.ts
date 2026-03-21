@@ -6,10 +6,19 @@ import {
   MdImage,
   MdPhoneIphone,
   MdCrop,
+  MdHttp,
 } from "react-icons/md";
 import { BiBook } from "react-icons/bi";
 
 export const tools = [
+  {
+    title: "Free Online API Tester",
+    description:
+      "A powerful tool to send HTTP requests, build custom headers/body payload, and inspect detailed JSON responses in real-time.",
+    url: "/tools/api-tester",
+    icon: MdHttp,
+    gradient: "from-blue-500 to-teal-400",
+  },
   {
     title: "Grid Generator",
     description:
