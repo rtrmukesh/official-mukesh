@@ -140,9 +140,13 @@ export default function ApiTesterClient() {
 
     try {
       const res = await axios({
-        method,
-        url: finalUrl,
-        headers: reqHeaders,
+        method: "POST",
+        url: "/api/tools/api-tester",
+        headers: {
+          ...reqHeaders,
+          "x-api-tester-target-url": finalUrl,
+          "x-api-tester-method": method,
+        },
         data: reqBody,
       });
 
