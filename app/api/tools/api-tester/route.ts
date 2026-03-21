@@ -4,39 +4,34 @@ export async function POST(req: NextRequest) {
   try {
     const targetUrl = req.headers.get("x-api-tester-target-url");
     const targetMethod = req.headers.get("x-api-tester-method") || "GET";
+    const encodedHeaders = req.headers.get("x-api-tester-headers");
 
     if (!targetUrl) {
       return NextResponse.json({ error: "Missing Target URL header" }, { status: 400 });
     }
 
-    // Construct headers to forward
+    // Construct headers to forward from the encoded JSON
     const forwardHeaders = new Headers();
-    req.headers.forEach((value, key) => {
-      const lowerKey = key.toLowerCase();
-      // Drop headers that may cause issues or reveal proxy details unnecessarily
-      if (
-        !lowerKey.startsWith("x-api-tester-") &&
-        lowerKey !== "x-forwarded-for" &&
-        lowerKey !== "x-forwarded-host" &&
-        lowerKey !== "x-forwarded-proto" &&
-        lowerKey !== "host" &&
-        lowerKey !== "connection" &&
-        lowerKey !== "content-length" && 
-        lowerKey !== "accept-encoding" // Let fetch handle encodings
-      ) {
-        forwardHeaders.append(key, value);
+    if (encodedHeaders) {
+      try {
+        const clientHeaders = JSON.parse(decodeURIComponent(encodedHeaders));
+        for (const [key, value] of Object.entries(clientHeaders)) {
+          // Avoid setting host/content-length/etc manually if it's already in browser headers
+          const lowerKey = key.toLowerCase();
+          if (lowerKey !== "host" && lowerKey !== "content-length") {
+            forwardHeaders.append(key, value as string);
+          }
+        }
+      } catch (e) {
+        console.error("Failed to parse x-api-tester-headers", e);
       }
-    });
+    }
 
     let bodyData: any = null;
     if (["POST", "PUT", "PATCH", "DELETE"].includes(targetMethod)) {
-      try {
-        const buffer = await req.arrayBuffer();
-        if (buffer.byteLength > 0) {
-          bodyData = buffer;
-        }
-      } catch (e) {
-        // Body reading failed
+      const buffer = await req.arrayBuffer();
+      if (buffer.byteLength > 0) {
+        bodyData = buffer;
       }
     }
 
@@ -47,7 +42,7 @@ export async function POST(req: NextRequest) {
       redirect: "follow",
     });
 
-    // Forward response back
+    // Forward response headers back
     const responseHeaders = new Headers();
     response.headers.forEach((value, key) => {
       const lowerKey = key.toLowerCase();
@@ -69,9 +64,14 @@ export async function POST(req: NextRequest) {
       headers: responseHeaders,
     });
   } catch (error: any) {
+    console.error("Proxy fetch error:", error);
     return NextResponse.json(
-      { error: error.message || "Proxy fetch error" },
+      { 
+        error: error.message || "Proxy fetch error",
+        details: error.cause ? String(error.cause) : undefined
+      },
       { status: 500 }
     );
   }
 }
+

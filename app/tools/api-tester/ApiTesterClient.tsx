@@ -143,9 +143,9 @@ export default function ApiTesterClient() {
         method: "POST",
         url: "/api/tools/api-tester",
         headers: {
-          ...reqHeaders,
           "x-api-tester-target-url": finalUrl,
           "x-api-tester-method": method,
+          "x-api-tester-headers": encodeURIComponent(JSON.stringify(reqHeaders)),
         },
         data: reqBody,
       });
